@@ -174,7 +174,7 @@
     }
   }
   if (stepsWrap) {
-    layoutStepsLine();
+    requestAnimationFrame(layoutStepsLine);
     if ('ResizeObserver' in window) new ResizeObserver(layoutStepsLine).observe(stepsWrap);
     else window.addEventListener('resize', layoutStepsLine);
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(layoutStepsLine);
@@ -293,6 +293,7 @@
     }
     function frame(t) {
       raf = requestAnimationFrame(frame);
+      if (!w) size();
       mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
       var sy = touch ? window.scrollY : 0;
       ctx.clearRect(0, 0, w, h);
@@ -319,7 +320,8 @@
       if (should && !raf) raf = requestAnimationFrame(frame);
       if (!should && raf) { cancelAnimationFrame(raf); raf = 0; }
     }
-    size(); seed(); run();
+    seed();
+    requestAnimationFrame(function () { size(); run(); });
     window.addEventListener('resize', function () { size(); });
     d.addEventListener('visibilitychange', function () { visible = !d.hidden; run(); });
     new IntersectionObserver(function (en) { inView = en[0].isIntersecting; run(); }).observe(c);
@@ -606,25 +608,40 @@
   }
 
   // Controla: começa com 40% visível, pausa fora da tela, depois loop ocioso
+  // Controla: monta a cena só quando ela se aproxima da tela (alivia o
+  // carregamento), começa com 40% visível, pausa fora da tela e depois
+  // entra no loop ocioso.
   function controlScene(holder, sceneEl, auto) {
-    var api = buildScene(sceneEl);
-    if (!api) return null;
-    var started = false, visible = false;
-    api.main.eventCallback('onComplete', function () { if (api.idle && visible) api.idle.play(); });
+    var api = null, started = false, visible = false;
+    function ensure() {
+      if (api) return api;
+      api = buildScene(sceneEl);
+      if (api) api.main.eventCallback('onComplete', function () { if (api.idle && visible) api.idle.play(); });
+      return api;
+    }
     function start() {
-      if (started) return;
+      if (started || !ensure()) return;
       started = true;
       if (visible) api.main.play();
     }
+    var pre = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting) return;
+      ensure();
+      pre.disconnect();
+    }, { rootMargin: '400px 0px' });
+    pre.observe(holder);
     new IntersectionObserver(function (entries) {
       var e = entries[0];
       visible = e.isIntersecting;
       holder.classList.toggle('is-paused', !visible);
       if (!visible) {
-        api.main.pause();
-        if (api.idle) api.idle.pause();
+        if (api) {
+          api.main.pause();
+          if (api.idle) api.idle.pause();
+        }
         return;
       }
+      if (!ensure()) return;
       if (auto && e.intersectionRatio >= 0.4) start();
       if (started) {
         if (api.main.progress() < 1) api.main.play();
@@ -741,7 +758,7 @@
     var mm = gsap.matchMedia();
     mm.add({ desk: '(min-width: 961px)', mob: '(max-width: 960px)' }, function (ctx) {
       var desk = ctx.conditions.desk;
-      layoutStepsLine();
+      requestAnimationFrame(layoutStepsLine);
       gsap.fromTo(fill, desk ? { scaleX: 0, scaleY: 1 } : { scaleY: 0, scaleX: 1 }, {
         scaleX: 1, scaleY: 1, ease: 'none',
         scrollTrigger: {

@@ -1,0 +1,8 @@
+{
+  "name": "galaxy-starter",
+  "private": true,
+  "description": "Página de vendas Galaxy Starter (site estático). Edite styles.css e main.js; rode `npm run build` para gerar os .min usados pela página.",
+  "scripts": {
+    "build": "npx -y esbuild@0.24.0 styles.css --minify --outfile=styles.min.css && npx -y esbuild@0.24.0 main.js --minify --outfile=main.min.js"
+  }
+}
