@@ -54,13 +54,42 @@
   /* -------------------------------------------------------
      Meta Pixel: Contact nos botões de WhatsApp
      ------------------------------------------------------- */
+  // No celular (principalmente no navegador interno do Instagram/Facebook),
+  // abrir o WhatsApp descarrega a página antes do evento sair. Por isso o
+  // clique segura 300ms e só então navega, na mesma aba.
+  var mqTouch = window.matchMedia('(hover: none), (pointer: coarse)');
   $$('[data-plan]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      if (typeof window.fbq === 'function') {
+    var leaving = false;
+    el.addEventListener('click', function (e) {
+      var hasPixel = typeof window.fbq === 'function';
+      if (hasPixel) {
         window.fbq('track', 'Contact', { content_name: el.getAttribute('data-plan') });
       }
+      if (!hasPixel || !mqTouch.matches || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      e.preventDefault();
+      if (leaving) return;
+      leaving = true;
+      var href = el.href;
+      setTimeout(function () {
+        leaving = false;
+        window.location.href = href;
+      }, 300);
     });
   });
+
+  /* -------------------------------------------------------
+     Meta Pixel: ViewContent quando a pessoa chega aos planos
+     (mostra quantos visitantes descem até o preço)
+     ------------------------------------------------------- */
+  var plans = $('#planos');
+  if (plans && 'IntersectionObserver' in window) {
+    var plansIO = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting) return;
+      if (typeof window.fbq === 'function') window.fbq('track', 'ViewContent', { content_name: 'Planos' });
+      plansIO.disconnect();
+    }, { threshold: 0.15 });
+    plansIO.observe(plans);
+  }
 
   /* -------------------------------------------------------
      FAQ: um item aberto por vez
@@ -207,11 +236,13 @@
   if (!RM) {
     $$('[data-marquee]').forEach(function (row) {
       var track = $('.pf-track', row);
+      // Cópias inseridas como HTML direto na página: um cloneNode() nasce fora
+      // do documento e o navegador baixa a imagem na hora, ignorando o lazy.
       $$('.pf', track).forEach(function (it) {
-        var c = it.cloneNode(true);
+        track.insertAdjacentHTML('beforeend', it.outerHTML);
+        var c = track.lastElementChild;
         c.setAttribute('aria-hidden', 'true');
         $$('img', c).forEach(function (img) { img.alt = ''; });
-        track.appendChild(c);
       });
       row.classList.add('is-marquee');
       if ('IntersectionObserver' in window) {
@@ -618,33 +649,10 @@
   }
 
   /* -------------------------------------------------------
-     Hero: timeline de entrada
+     Hero: entrada
+     Título, subtítulo e botões já aparecem com o HTML (não esperam
+     o JS carregar). A animação fica nos elementos de apoio.
      ------------------------------------------------------- */
-  function splitTitle(h1) {
-    var lines = $$('.line', h1);
-    var orig = lines.map(function (l) { return l.innerHTML; });
-    lines.forEach(function (l) {
-      var words = l.textContent.trim().split(/\s+/);
-      l.innerHTML = words.map(function (w) { return '<span class="w"><span class="wi">' + w + '</span></span>'; }).join(' ');
-    });
-    var g = $('.grad-text', h1);
-    if (g) {
-      g.classList.add('is-split');
-      var ws = $$('.wi', g);
-      var rects = ws.map(function (w) { return w.getBoundingClientRect(); });
-      var L = Math.min.apply(null, rects.map(function (r) { return r.left; }));
-      var R = Math.max.apply(null, rects.map(function (r) { return r.right; }));
-      ws.forEach(function (w, i) {
-        w.style.backgroundSize = (R - L) + 'px 100%';
-        w.style.backgroundPosition = (L - rects[i].left) + 'px 0';
-      });
-    }
-    return function restore() {
-      lines.forEach(function (l, i) { l.innerHTML = orig[i]; });
-      if (g) g.classList.remove('is-split');
-    };
-  }
-
   function chipsFloat() {
     $$('[data-chip], [data-toast]').forEach(function (el, i) {
       var t = gsap.timeline({ repeat: -1, delay: i * 0.35 });
@@ -654,29 +662,19 @@
     });
   }
 
-  // Espera a Geist (máx. 700ms) para medir as palavras com a fonte final
-  var fontsReady = (d.fonts && d.fonts.ready) ? d.fonts.ready : Promise.resolve();
-  Promise.race([fontsReady, new Promise(function (r) { setTimeout(r, 700); })]).then(heroIntro);
-
-  function heroIntro() {
-    var title = $('.hero-title');
-    var restore = splitTitle(title);
+  (function heroIntro() {
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.fromTo('[data-stars]', { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'none' }, 0)
-      .fromTo('[data-h="tag"]', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 0.1)
-      .set(title, { opacity: 1 }, 0.2)
-      .fromTo($$('.wi', title), { yPercent: 115 }, { yPercent: 0, duration: 1, ease: 'power4.out', stagger: 0.05, onComplete: restore }, 0.2)
-      .fromTo('[data-h="sub"]', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7 }, 0.7)
-      .fromTo('[data-h="ben"]', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.08, ease: 'back.out(1.4)' }, 0.85)
-      .fromTo('[data-h="ctas"]', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, onComplete: function () { shineOnce($('[data-hero-primary]')); } }, 1.05)
-      .fromTo('[data-h="micro"]', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 1.2)
-      .fromTo('[data-mockup]', { opacity: 0, y: 120, rotationX: 14 }, { opacity: 1, y: 0, rotationX: 0, duration: 1.4 }, 1.0)
-      .fromTo('[data-sk]', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, 1.6)
-      .fromTo('[data-prog]', { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: 'power2.inOut' }, 2.2)
-      .fromTo('[data-chip]', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', stagger: 0.15 }, 2.4)
-      .fromTo('[data-toast]', { opacity: 0, scale: 0.7, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' }, 3.6)
-      .add(chipsFloat, 4.2);
-  }
+      .fromTo('[data-h="ben"]', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.08, ease: 'back.out(1.4)' }, 0.1)
+      .add(function () { shineOnce($('[data-hero-primary]')); }, 0.6)
+      .fromTo('[data-h="micro"]', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.4)
+      .fromTo('[data-mockup]', { opacity: 0, y: 120, rotationX: 14 }, { opacity: 1, y: 0, rotationX: 0, duration: 1.4 }, 0.3)
+      .fromTo('[data-sk]', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, 0.9)
+      .fromTo('[data-prog]', { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: 'power2.inOut' }, 1.5)
+      .fromTo('[data-chip]', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', stagger: 0.15 }, 1.7)
+      .fromTo('[data-toast]', { opacity: 0, scale: 0.7, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' }, 2.9)
+      .add(chipsFloat, 3.5);
+  })();
 
   // Mockup endireita de 8° para 0° no scroll (o 8° inicial vem do CSS)
   gsap.fromTo('.mockup-scroll', { rotationX: 8 }, {
