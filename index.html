@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Galaxy Starter — Sua página profissional no ar em até 4 dias úteis</title>
+  <meta name="description" content="Landing pages e sites com copy, 1 ano de hospedagem e suporte inclusos. A partir de R$ 597, em até 12x. Condição válida para quem fechar hoje.">
+  <meta name="theme-color" content="#080412">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Galaxy Media">
+  <meta property="og:title" content="Galaxy Starter — Sua página profissional no ar em até 4 dias úteis">
+  <meta property="og:description" content="Landing pages e sites com copy, 1 ano de hospedagem e suporte inclusos. A partir de R$ 597, em até 12x. Condição válida para quem fechar hoje.">
+  <!-- PLACEHOLDER: og:url e og:image (1200x630) quando o domínio final estiver definido -->
+  <!-- <meta property="og:url" content="https://starter.wegalaxymedia.com/"> -->
+  <!-- <meta property="og:image" content="https://starter.wegalaxymedia.com/assets/og.jpg"> -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+
+  <script>
+    // Prepara o estado inicial das animações só se houver JS e movimento permitido.
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        d.classList.add('js-anim');
+        // Segurança: se o GSAP não carregar, todo o conteúdo volta a ficar visível.
+        setTimeout(function () { if (!window.__gsReady) d.classList.remove('js-anim'); }, 3500);
+      }
+    })();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="main.js" defer></script>
+
+  <!-- Meta Pixel — PLACEHOLDER: troque PIXEL_ID pelo ID real -->
+  <script>
+    (function () {
+      var PIXEL_ID = 'PIXEL_ID';
+      if (PIXEL_ID === 'PIXEL_ID') return; // não carrega enquanto o ID for placeholder
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', PIXEL_ID);
+      fbq('track', 'PageView');
+    })();
+  </script>
+</head>
+<body>
+  <!-- Sprite de ícones (Lucide, stroke 1.75) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-check" viewBox="0 0 24 24"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-pen-line" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></symbol>
+    <symbol id="i-messages-square" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-maximize-2" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-rotate-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+    <symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-pointer" viewBox="0 0 24 24"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+  </svg>
+
+  <!-- ============ BARRA DE URGÊNCIA ============ -->
+  <header class="topbar" role="banner">
+    <div class="topbar-in">
+      <a class="brand" href="#topo" aria-label="Galaxy Media Starter, voltar ao topo">
+        <img class="brand-logo" src="assets/logo-galaxy-starter.webp" alt="Galaxy Starter" width="2000" height="263">
+      </a>
+      <p class="topbar-timer">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span class="only-desk">Condição especial para quem chamar e fechar hoje. Encerra em</span>
+        <span class="only-mob">Oferta de hoje encerra em</span>
+        <strong class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</strong>
+      </p>
+      <a class="btn btn-primary btn-sm only-desk" href="#planos"><span class="btn-label">Ver planos</span></a>
+    </div>
+  </header>
+
+  <main id="topo">
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <canvas class="stars" data-stars></canvas>
+        <div class="hero-dots"></div>
+      </div>
+
+      <div class="wrap hero-in">
+        <p class="hero-tag" data-h="tag">
+          <span class="tag-strong">Galaxy Starter</span>
+          <span class="tag-sep" aria-hidden="true"></span>
+          <span>Condição especial de entrada</span>
+        </p>
+
+        <h1 class="hero-title" id="hero-title" data-split>
+          <span class="line">Sua empresa com uma página profissional</span>
+          <span class="line grad-text">no ar em até 4 dias úteis.</span>
+        </h1>
+
+        <p class="hero-sub" data-h="sub">Copy estratégica, 1 ano de hospedagem e suporte ativo inclusos. O padrão de entrega da Galaxy Media, num formato criado para quem quer dar o primeiro passo com a gente.</p>
+
+        <ul class="hero-benefits" role="list">
+          <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-pen-line"/></svg></span><span>Copy inclusa</span></li>
+          <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-server"/></svg></span><span>1 ano de hospedagem grátis</span></li>
+          <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-messages-square"/></svg></span><span>Suporte ativo</span></li>
+          <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-timer"/></svg></span><span>Entrega em até 4 dias úteis</span></li>
+        </ul>
+
+        <div class="hero-ctas" data-h="ctas">
+          <a class="btn btn-primary" href="#planos" data-hero-primary><span class="btn-label">Quero minha página hoje</span></a>
+          <a class="btn btn-secondary" href="#como-funciona"><span class="btn-label">Ver como funciona</span></a>
+        </div>
+
+        <ul class="pay-micro" role="list" data-h="micro">
+          <li><span class="chk" aria-hidden="true"><svg class="i"><use href="#i-check"/></svg></span>A partir de R$ 597</li>
+          <li><span class="chk" aria-hidden="true"><svg class="i"><use href="#i-check"/></svg></span>Em até 12x no cartão</li>
+          <li><span class="chk" aria-hidden="true"><svg class="i"><use href="#i-check"/></svg></span>Ou 50% agora e 50% na entrega</li>
+        </ul>
+
+        <div class="proof" data-h="micro">
+          <span class="avatars" aria-hidden="true">
+            <span class="av">HP</span><span class="av">HM</span><span class="av">RB</span><span class="av">MS</span>
+          </span>
+          <p>+250 projetos entregues em 5 anos de mercado</p>
+        </div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="mockup-stage" aria-hidden="true">
+        <div class="mockup-scroll">
+          <div class="mockup" data-mockup>
+            <div class="win-bar">
+              <span class="win-dots"><i></i><i></i><i></i></span>
+              <span class="win-url"><svg class="i"><use href="#i-lock"/></svg>suaempresa.com.br</span>
+              <span class="win-sp"></span>
+            </div>
+            <div class="win-body">
+              <div class="sk-nav" data-sk>
+                <span class="sk-logo"></span>
+                <span class="sk-links"><i></i><i></i><i></i></span>
+                <span class="sk-navbtn"></span>
+              </div>
+              <div class="sk-hero">
+                <span class="sk sk-pill" data-sk></span>
+                <span class="sk sk-h1" data-sk></span>
+                <span class="sk sk-h1 sk-short" data-sk></span>
+                <span class="sk sk-p" data-sk></span>
+                <span class="sk sk-p sk-short2" data-sk></span>
+                <span class="sk-btn" data-sk></span>
+              </div>
+              <div class="sk-cards">
+                <div class="sk-card" data-sk><span class="sk-ic"></span><span class="sk sk-l"></span><span class="sk sk-l sk-s"></span></div>
+                <div class="sk-card" data-sk><span class="sk-ic"></span><span class="sk sk-l"></span><span class="sk sk-l sk-s"></span></div>
+                <div class="sk-card" data-sk><span class="sk-ic"></span><span class="sk sk-l"></span><span class="sk sk-l sk-s"></span></div>
+              </div>
+            </div>
+            <div class="win-foot">
+              <div class="prog-labels"><span>Dia 1 · briefing</span><span class="prog-end">Dia 4 · no ar</span></div>
+              <div class="prog"><span class="prog-fill" data-prog></span></div>
+            </div>
+          </div>
+        </div>
+
+        <span class="fchip fc-1" data-chip><span class="chk"><svg class="i"><use href="#i-check"/></svg></span>Copy aprovada</span>
+        <span class="fchip fc-2" data-chip><span class="sdot"></span>Hospedagem ativa</span>
+        <span class="fchip fc-3" data-chip><svg class="i fchip-ic"><use href="#i-pen-line"/></svg>Ajuste 1 de 2</span>
+        <span class="fchip fc-4" data-chip><span class="sdot"></span>Suporte online</span>
+        <div class="ftoast" data-toast>
+          <span class="ftoast-ic"><svg class="i"><use href="#i-check"/></svg></span>
+          <span><strong>Página publicada</strong><small>Pronta para receber clientes</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. O PROBLEMA ============ -->
+    <section class="sec" aria-labelledby="s2-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="s2-title">Seu cliente te pesquisa antes de te chamar.</h2>
+          <p>E ele decide em segundos se confia ou não no seu negócio. Sem uma página à altura, você perde clientes que nem chegam a falar com você.</p>
+        </header>
+
+        <div class="grid-3" data-reveal-group>
+          <!-- Card 1 -->
+          <article class="scard glass" data-tilt>
+            <div class="stage"><div class="scene" data-scene="search" data-sw="320" data-sh="250">
+              <div class="sc-search sc-main">
+                <svg class="i"><use href="#i-search"/></svg>
+                <span class="type" data-type>melhor clínica perto de mim</span><span class="caret"></span>
+              </div>
+              <ul class="sc-results">
+                <li class="res"><span class="res-fav">A</span><span class="res-tx"><b>Concorrente A</b><i></i></span></li>
+                <li class="res"><span class="res-fav">B</span><span class="res-tx"><b>Concorrente B</b><i></i></span></li>
+                <li class="res"><span class="res-fav">C</span><span class="res-tx"><b>Concorrente C</b><i></i></span></li>
+              </ul>
+              <span class="sc-badge-red"><svg class="i"><use href="#i-x"/></svg>Sua empresa não apareceu</span>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: Sem página, você não existe para quem pesquisa"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>Sem página, você não existe para quem pesquisa.</h3>
+              <p>Quem não te encontra procura o concorrente. Um perfil no Instagram não substitui uma página que explica o que você faz e como te contratar.</p>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="scard glass" data-tilt>
+            <div class="stage"><div class="scene" data-scene="broken" data-sw="320" data-sh="230">
+              <div class="sc-win sc-main">
+                <div class="sc-win-bar">
+                  <span class="sc-nav-btn sc-back"><svg class="i"><use href="#i-arrow-left"/></svg></span>
+                  <span class="sc-nav-btn"><svg class="i"><use href="#i-rotate-cw"/></svg></span>
+                  <span class="sc-win-url">seusite.com.br</span>
+                </div>
+                <div class="sc-broken">
+                  <span class="bk bk-1"></span><span class="bk bk-2"></span><span class="bk bk-3"></span>
+                  <span class="bk bk-4"></span><span class="bk bk-5"></span>
+                  <div class="sc-loading"><span class="spinner"></span><span>Carregando…</span></div>
+                </div>
+              </div>
+              <span class="sc-cursor"><svg viewBox="0 0 24 24"><use href="#i-pointer"/></svg></span>
+              <span class="sc-toast-red"><svg class="i"><use href="#i-x"/></svg>Visitante saiu sem falar com você</span>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: Uma página fraca custa confiança"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>Uma página fraca custa confiança.</h3>
+              <p>Site lento, desatualizado ou genérico passa a impressão de um negócio menor do que ele é. Isso custa autoridade, preço e tempo de negociação.</p>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="scard glass" data-tilt>
+            <div class="stage"><div class="scene" data-scene="notif" data-sw="320" data-sh="240">
+              <div class="sc-app">
+                <span class="sc-app-ic"><svg class="i i-fill"><use href="#i-wa"/></svg><span class="sc-app-badge" data-count-badge>3</span></span>
+                <span class="sc-app-tx"><b>WhatsApp</b><small><span class="sdot"></span>Novas mensagens</small></span>
+              </div>
+              <ul class="sc-notifs sc-main">
+                <li class="ntf"><span class="ntf-av">C</span><span class="ntf-tx"><b>Novo contato <time>23:47</time></b>Vi sua página e quero um orçamento</span></li>
+                <li class="ntf"><span class="ntf-av">M</span><span class="ntf-tx"><b>Novo contato <time>07:12</time></b>Ainda tem horário essa semana?</span></li>
+                <li class="ntf"><span class="ntf-av">R</span><span class="ntf-tx"><b>Novo contato <time>12:30</time></b>Quero fechar o pacote completo</span></li>
+              </ul>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: A página certa trabalha por você"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>A página certa trabalha por você.</h3>
+              <p>Ela apresenta, convence e leva o cliente direto para a conversa, 24 horas por dia, inclusive enquanto você atende.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. ANCORAGEM DE PREÇO ============ -->
+    <section class="sec sec-anchor" aria-labelledby="s3-title">
+      <div class="wrap anchor">
+        <div class="anchor-tx" data-reveal>
+          <h2 id="s3-title">Os projetos da Galaxy custam de R$ 1.997 a R$ 4.000.</h2>
+          <p>A Galaxy Starter é um conjunto criado para negócios que precisam de uma página com padrão de agência, mas ainda não podem investir esse valor agora.</p>
+          <p>Por ser uma condição especial de entrada, ela não fica aberta o tempo todo. Ela vale para quem chama e fecha no mesmo dia.</p>
+
+          <div class="minilists">
+            <div>
+              <p class="ml-head">O que não muda</p>
+              <ul class="blist" role="list">
+                <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>O mesmo time</b></span></li>
+                <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>O mesmo processo</b></span></li>
+                <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>O mesmo padrão de entrega</b></span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="ml-head">O que muda</p>
+              <ul class="blist blist-lilac" role="list">
+                <li><span class="chk"><svg class="i"><use href="#i-arrow-right"/></svg></span><span><b>Escopo enxuto e definido</b></span></li>
+                <li><span class="chk"><svg class="i"><use href="#i-arrow-right"/></svg></span><span><b>Prazo curto de entrega</b></span></li>
+                <li><span class="chk"><svg class="i"><use href="#i-arrow-right"/></svg></span><span><b>Investimento de entrada</b></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare glass" data-reveal data-compare>
+          <div class="cmp-old">
+            <p class="cmp-cap">Projeto Galaxy sob medida</p>
+            <p class="cmp-old-price"><span>R$ 1.997 a R$ 4.000</span><i class="strike" data-strike aria-hidden="true"></i></p>
+          </div>
+          <span class="cmp-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow-down"/></svg></span>
+          <div class="cmp-new">
+            <p class="cmp-cap cmp-cap-hi">Galaxy Starter, fechando hoje</p>
+            <p class="cmp-price"><small>a partir de</small> <strong>R$ <span data-count="597">597</span></strong></p>
+            <p class="cmp-urg"><span class="pulse-dot" aria-hidden="true"></span>Válido só para quem chamar e fechar no mesmo dia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. O QUE ESTÁ INCLUSO (BENTO) ============ -->
+    <section class="sec" aria-labelledby="s4-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="s4-title">Tudo o que sua página precisa para vender, já incluso.</h2>
+          <p>Você não precisa contratar redator, procurar hospedagem nem ficar sozinho no processo.</p>
+        </header>
+
+        <div class="bento" data-reveal-group>
+          <!-- 1. Copy -->
+          <article class="scard glass b-copy" data-tilt>
+            <div class="stage"><div class="scene" data-scene="copy" data-sw="360" data-sh="330">
+              <!-- CONFIRMAR: se houver um caso real de antes/depois, substituir este exemplo ilustrativo. -->
+              <div class="doc sc-main">
+                <div class="doc-head"><svg class="i"><use href="#i-file-text"/></svg><span>Copy · Página da sua empresa</span></div>
+                <div class="doc-row doc-before">
+                  <span class="doc-lab">Antes</span>
+                  <p class="doc-old"><span>Somos uma empresa com qualidade e compromisso.</span><i class="doc-strike"></i></p>
+                </div>
+                <div class="doc-row">
+                  <span class="doc-lab doc-lab-new">Depois</span>
+                  <p class="doc-new"><span data-type>Seu cliente entende o que você faz em 5 segundos e sabe exatamente como te chamar.</span><span class="caret caret-dark"></span></p>
+                </div>
+                <div class="doc-chips">
+                  <span>Headline</span><span>Oferta</span><span>Objeções</span><span>Chamadas para ação</span>
+                </div>
+                <div class="doc-lines"><i></i><i></i><i class="s"></i></div>
+                <span class="stamp"><svg class="i"><use href="#i-check"/></svg>Copy aprovada</span>
+              </div>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: Copy inclusa"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>Copy inclusa</h3>
+              <p>Escrevemos todos os textos da página a partir do seu briefing: headline, oferta, quebra de objeções e chamadas para ação. Você aprova a copy antes do design começar.</p>
+            </div>
+          </article>
+
+          <!-- 2. Hospedagem -->
+          <article class="scard glass b-host" data-tilt>
+            <div class="stage"><div class="scene" data-scene="host" data-sw="330" data-sh="170">
+              <div class="status sc-main">
+                <div class="st-top">
+                  <span class="st-dom"><svg class="i"><use href="#i-globe"/></svg>suaempresa.com.br</span>
+                  <span class="st-online"><span class="sdot"></span>Online</span>
+                </div>
+                <div class="st-bars" aria-hidden="true">
+                  <i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i>
+                </div>
+                <div class="st-foot"><span>12 meses</span><span>Hospedagem ativa até <b data-host-until>out/2027</b></span></div>
+              </div>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: 1 ano de hospedagem grátis"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>1 ano de hospedagem grátis</h3>
+              <p>Sua página no ar, rápida e segura, sem custo de servidor no primeiro ano.</p>
+            </div>
+          </article>
+
+          <!-- 3. Suporte -->
+          <article class="scard glass b-support" data-tilt>
+            <div class="stage"><div class="scene" data-scene="support" data-sw="330" data-sh="200">
+              <div class="chat sc-main">
+                <div class="chat-head">
+                  <span class="chat-av">G</span>
+                  <span class="chat-name"><b>Galaxy Media</b><small><span class="sdot"></span>online</small></span>
+                </div>
+                <div class="chat-body">
+                  <div class="bub bub-me">Consegue trocar a foto da seção 3?<span class="bub-meta">14:02 <span class="ticks"><svg class="i tk-gray"><use href="#i-check-check"/></svg><svg class="i tk-lilac"><use href="#i-check-check"/></svg></span></span></div>
+                  <div class="slot">
+                    <div class="bub bub-them bub-typing"><span class="tdots"><i></i><i></i><i></i></span><span class="tlabel">digitando…</span></div>
+                    <div class="bub bub-them bub-reply">Feito! Já está no ar.<span class="bub-meta">14:05</span></div>
+                  </div>
+                </div>
+              </div>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: Suporte ativo"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>Suporte ativo</h3>
+              <p>Acompanhamento direto pelo WhatsApp, do briefing até a página publicada. Você sempre sabe em que etapa o projeto está.</p>
+            </div>
+          </article>
+
+          <!-- 4. Entrega rápida -->
+          <article class="scard glass b-small" data-tilt>
+            <div class="stage"><div class="scene" data-scene="timeline" data-sw="300" data-sh="170">
+              <div class="tl sc-main">
+                <div class="tl-head"><svg class="i"><use href="#i-calendar-check"/></svg>Entrega · Galaxy Page</div>
+                <div class="tl-track">
+                  <span class="tl-line"><i class="tl-fill"></i></span>
+                  <div class="tl-pts">
+                    <div class="tl-pt"><span class="tl-dot"><i></i></span><b>seg</b><small>Briefing</small></div>
+                    <div class="tl-pt"><span class="tl-dot"><i></i></span><b>ter</b><small>Copy</small></div>
+                    <div class="tl-pt"><span class="tl-dot"><i></i></span><b>qua</b><small>Página</small></div>
+                    <div class="tl-pt"><span class="tl-dot"><i></i></span><b>qui</b><small>No ar</small></div>
+                  </div>
+                </div>
+                <span class="pill-live"><span class="sdot"></span>Página no ar</span>
+              </div>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: Entrega rápida"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>Entrega rápida</h3>
+              <p>Até 4 dias úteis no Galaxy Page e até 7 dias úteis no Galaxy Professional.</p>
+            </div>
+          </article>
+
+          <!-- 5. Ajustes -->
+          <article class="scard glass b-small" data-tilt>
+            <div class="stage"><div class="scene" data-scene="versions" data-sw="300" data-sh="170">
+              <div class="vers sc-main">
+                <div class="vers-row">
+                  <span class="vtag">v1</span>
+                  <span class="varrow"><svg class="i"><use href="#i-arrow-right"/></svg></span>
+                  <span class="vtag">v2</span>
+                  <span class="varrow"><svg class="i"><use href="#i-arrow-right"/></svg></span>
+                  <span class="vtag vtag-final">Final</span>
+                </div>
+                <div class="vers-count">
+                  <span>Ajustes gratuitos: 2 de 2</span>
+                  <span class="vchecks"><span class="vchk"><svg class="i"><use href="#i-check"/></svg></span><span class="vchk"><svg class="i"><use href="#i-check"/></svg></span></span>
+                </div>
+              </div>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: 2 rodadas de ajustes"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>2 rodadas de ajustes</h3>
+              <p>Duas revisões completas, sem nenhum custo adicional.</p>
+            </div>
+          </article>
+
+          <!-- 6. Pagamento -->
+          <article class="scard glass b-small" data-tilt>
+            <div class="stage"><div class="scene" data-scene="pay" data-sw="300" data-sh="220">
+              <div class="paylink sc-main">
+                <p class="pl-cap">Link de pagamento</p>
+                <p class="pl-val">R$ 597,00</p>
+                <div class="pl-sub">
+                  <span class="pl-a">em até 12x</span>
+                  <span class="pl-b">R$ 298,50 agora + R$ 298,50 na entrega</span>
+                </div>
+                <div class="pl-toggle">
+                  <span class="pl-thumb"></span>
+                  <span class="pl-opt pl-o1">12x no cartão</span>
+                  <span class="pl-opt pl-o2">50% + 50%</span>
+                </div>
+                <span class="pl-btn">Pagar agora</span>
+                <div class="pl-cards" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div></div>
+            <button class="expand" type="button" aria-label="Ampliar ilustração: Pagamento flexível"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
+            <div class="scard-body">
+              <h3>Pagamento flexível</h3>
+              <p>Em até 12x no cartão, ou 50% para começar e 50% na entrega.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFÓLIO (carrossel) ============ -->
+    <section class="sec sec-pf" id="portfolio" aria-labelledby="pf-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="pf-title">Mais de 300 páginas no ar com a assinatura da Galaxy.</h2>
+          <p>Alguns dos projetos que já entregamos. O mesmo time, o mesmo processo e o mesmo padrão que você recebe na Galaxy Starter.</p>
+        </header>
+      </div>
+
+      <div class="pf-rows" data-reveal>
+        <div class="pf-row" data-marquee>
+          <ul class="pf-track" role="list">
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/01.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/02.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/03.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/04.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/05.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/06.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="pf-row pf-rev" data-marquee>
+          <ul class="pf-track" role="list">
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/07.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/08.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/09.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/10.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/11.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot">
+                <!-- PLACEHOLDER: troque o bloco abaixo por <img src="assets/portfolio/12.webp" alt="Hero de página desenvolvida pela Galaxy" width="1440" height="900" loading="lazy" decoding="async"> -->
+                <div class="pf-ph" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="pf-note" role="note" data-reveal>
+          <span class="pf-note-ic" aria-hidden="true"><svg class="i"><use href="#i-shield-check"/></svg></span>
+          <p><strong>Atenção: são mais de 300 páginas desenvolvidas pela Galaxy Media.</strong> Você não está testando um serviço novo. Está entrando em um processo validado em centenas de projetos, com o mesmo cuidado em cada entrega.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. PLANOS ============ -->
+    <section class="sec sec-plans" id="planos" aria-labelledby="s5-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="s5-title">Escolha o seu formato e fale com a gente hoje.</h2>
+          <p>Ao clicar, você vai direto para o nosso WhatsApp com o plano já selecionado. O projeto é fechado na conversa.</p>
+        </header>
+
+        <div class="plans" data-reveal-group>
+          <article class="plan glass" data-tilt>
+            <h3 class="plan-name">Galaxy Page</h3>
+            <p class="plan-desc">Uma landing page objetiva para apresentar seu serviço, captar contatos ou vender uma oferta.</p>
+            <p class="plan-price"><small>a partir de</small> <strong>R$ 597</strong></p>
+            <p class="plan-pay">em até 12x no cartão ou 50% + 50%</p>
+            <hr class="divider">
+            <ul class="blist" role="list">
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Landing page de até 11 seções</b></span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Copy completa inclusa</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 4 dias úteis</b></span></li>
+            </ul>
+            <p class="plan-ideal"><b>Ideal para:</b> profissionais, prestadores de serviço, eventos e lançamentos.</p>
+            <a class="btn btn-primary btn-block" href="https://wa.me/5571999278413?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20quero%20fechar%20o%20Galaxy%20Page%20hoje." target="_blank" rel="noopener" data-plan="Galaxy Page">
+              <svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Quero o Galaxy Page</span>
+            </a>
+            <p class="plan-micro">Você escolhe, chama e fecha direto com a equipe.</p>
+          </article>
+
+          <article class="plan glass featured" data-tilt>
+            <span class="feat-glow" aria-hidden="true"></span>
+            <span class="feat-border" aria-hidden="true"><i></i></span>
+            <span class="badge">Mais completo</span>
+            <h3 class="plan-name">Galaxy Professional</h3>
+            <p class="plan-desc">Para empresas que precisam de mais espaço para mostrar estrutura, serviços e diferenciais.</p>
+            <p class="plan-price"><small>a partir de</small> <strong>R$ 997</strong></p>
+            <p class="plan-pay">em até 12x no cartão ou 50% + 50%</p>
+            <hr class="divider">
+            <ul class="blist" role="list">
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Site de 12 a 14 seções ou até 2 páginas institucionais</b></span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Copy completa inclusa</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 7 dias úteis</b></span></li>
+            </ul>
+            <p class="plan-ideal"><b>Ideal para:</b> empresas, clínicas e negócios com mais de um serviço.</p>
+            <a class="btn btn-primary btn-block" href="https://wa.me/5571999278413?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20quero%20fechar%20o%20Galaxy%20Professional%20hoje." target="_blank" rel="noopener" data-plan="Galaxy Professional">
+              <svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Quero o Galaxy Professional</span>
+            </a>
+            <p class="plan-micro">Você escolhe, chama e fecha direto com a equipe.</p>
+          </article>
+        </div>
+
+        <p class="urg-pill" data-reveal>
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>Esses valores valem só para quem chamar e fechar hoje. Encerra em <strong class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</strong></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 6. COMO FUNCIONA ============ -->
+    <section class="sec" id="como-funciona" aria-labelledby="s6-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="s6-title">Um processo curto, feito para não ter surpresa.</h2>
+          <p>Cada etapa só avança com a sua aprovação. É isso que garante uma página assertiva em poucos dias.</p>
+        </header>
+
+        <div class="steps-wrap" data-steps>
+        <div class="steps-line" aria-hidden="true"><i data-steps-fill></i></div>
+        <ol class="steps" role="list">
+
+          <li class="step">
+            <div class="mini glass"><div class="stage stage-mini"><div class="scene" data-scene="m-brief" data-sw="200" data-sh="132">
+              <div class="m-form sc-main">
+                <div class="mf"><span class="mf-l">Seu negócio</span><span class="mf-i"><span class="mf-t">Clínica Sorriso</span><span class="mf-c"><svg class="i"><use href="#i-check"/></svg></span></span></div>
+                <div class="mf"><span class="mf-l">Seu público</span><span class="mf-i"><span class="mf-t">Famílias da região</span><span class="mf-c"><svg class="i"><use href="#i-check"/></svg></span></span></div>
+                <div class="mf"><span class="mf-l">O que você oferece</span><span class="mf-i"><span class="mf-t">Ortodontia e implantes</span><span class="mf-c"><svg class="i"><use href="#i-check"/></svg></span></span></div>
+              </div>
+            </div></div></div>
+            <span class="step-num">1</span>
+            <div class="step-tx">
+              <h3>Briefing.</h3>
+              <p>Você responde um briefing objetivo sobre o seu negócio, seu público e o que você oferece.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="mini glass"><div class="stage stage-mini"><div class="scene" data-scene="m-copy" data-sw="200" data-sh="132">
+              <div class="m-sheet sc-main">
+                <i class="ln ln-h"></i><i class="ln"></i><i class="ln"></i><i class="ln ln-s"></i><i class="ln"></i><i class="ln ln-s2"></i>
+                <span class="stamp stamp-sm"><svg class="i"><use href="#i-check"/></svg>Aprovado</span>
+              </div>
+            </div></div></div>
+            <span class="step-num">2</span>
+            <div class="step-tx">
+              <h3>Copy.</h3>
+              <p>Com base no briefing, escrevemos todo o texto da página e enviamos para você aprovar.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="mini glass"><div class="stage stage-mini"><div class="scene" data-scene="m-mood" data-sw="200" data-sh="132">
+              <div class="m-mood sc-main"><i class="mb mb-1"></i><i class="mb mb-2"></i><i class="mb mb-3"></i><i class="mb mb-4"></i></div>
+            </div></div></div>
+            <span class="step-num">3</span>
+            <div class="step-tx">
+              <h3>Referências.</h3>
+              <p>Com a copy aprovada, coletamos referências e definimos a direção visual da página.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="mini glass"><div class="stage stage-mini"><div class="scene" data-scene="m-dev" data-sw="200" data-sh="132">
+              <div class="m-dev sc-main">
+                <div class="md-bar"><span class="win-dots"><i></i><i></i><i></i></span></div>
+                <div class="md-body"><i class="md md-1"></i><i class="md md-2"></i><i class="md md-3"></i><i class="md md-4"></i><i class="md md-5"></i></div>
+              </div>
+              <span class="md-tag">Ajuste 1 de 2</span>
+            </div></div></div>
+            <span class="step-num">4</span>
+            <div class="step-tx">
+              <h3>Desenvolvimento.</h3>
+              <p>Construímos a página e enviamos para sua aprovação, com até 2 rodadas de ajustes.</p>
+            </div>
+          </li>
+
+          <li class="step step-last">
+            <div class="mini glass"><div class="stage stage-mini"><div class="scene" data-scene="m-live" data-sw="200" data-sh="132">
+              <div class="m-live">
+                <span class="conf" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <div class="m-toast sc-main"><span class="ftoast-ic"><svg class="i"><use href="#i-check"/></svg></span><span><strong>Página publicada</strong><small>suaempresa.com.br</small></span></div>
+              </div>
+            </div></div></div>
+            <span class="step-num">5</span>
+            <div class="step-tx">
+              <h3>Página no ar.</h3>
+              <p>Finalizamos, otimizamos e publicamos. Sua página está pronta para receber clientes.</p>
+            </div>
+          </li>
+        </ol>
+        </div>
+
+        <p class="steps-close" data-reveal>Simples assim: sem reuniões intermináveis, sem retrabalho, sem você ficar sem resposta.</p>
+      </div>
+    </section>
+
+    <!-- ============ 7. PARA QUEM É ============ -->
+    <section class="sec" aria-labelledby="s7-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="s7-title">A Galaxy Starter é para você?</h2>
+          <p>Preferimos ser claros antes de começar. Assim o projeto funciona para os dois lados.</p>
+        </header>
+
+        <div class="fit" data-reveal-group>
+          <article class="fit-card glass fit-yes" data-tilt>
+            <h3><span class="fit-ic"><svg class="i"><use href="#i-check"/></svg></span>Para quem é</h3>
+            <ul class="blist" role="list">
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Empresas que ainda não têm um site no ar.</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Empresas que têm um site, mas ele não funciona ou não está à altura do negócio.</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Profissionais que querem uma página para representar seu negócio ou serviço.</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Estrategistas que precisam de uma página para eventos ou lançamentos, digitais ou presenciais.</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Negócios que querem uma página profissional e ainda não podem investir muito.</span></li>
+            </ul>
+          </article>
+          <article class="fit-card glass fit-no" data-tilt>
+            <h3><span class="fit-ic"><svg class="i"><use href="#i-x"/></svg></span>Para quem não é</h3>
+            <ul class="blist blist-neg" role="list">
+              <li><span class="chk"><svg class="i"><use href="#i-x"/></svg></span><span>Empresas que querem uma página em prazo menor que o informado e pelo preço ofertado.</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-x"/></svg></span><span>Negócios que ainda não faturam.</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-x"/></svg></span><span>Profissionais que ainda não sabem o que vão ofertar.</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-x"/></svg></span><span>Empresas que querem receber o site e pagar só se gostar. Trabalhamos com processo e aprovação em cada etapa.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. DEPOIMENTOS ============ -->
+    <section class="sec" aria-labelledby="s8-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="s8-title">Quem já trabalhou com a Galaxy.</h2>
+          <p>Mais de 250 projetos em 5 anos, atendendo negócios dos setores clínico, médico, wellness e digital.</p>
+        </header>
+
+        <!-- PLACEHOLDER: fotos dos clientes em /assets/clientes/. Se não houver fotos, manter as iniciais. -->
+        <div class="grid-3" data-reveal-group>
+          <figure class="testi glass" data-tilt>
+            <svg class="i i-fill testi-q" aria-hidden="true"><use href="#i-quote"/></svg>
+            <blockquote>“Um grande diferencial em cada uma de nossas campanhas foi poder contar com o profissionalismo, a qualidade e o comprometimento da Galaxy. Foram mais de 4 projetos juntos, parecia que eles eram fixos conosco.”</blockquote>
+            <figcaption><span class="av av-lg" aria-hidden="true">HP</span><span><b>Hugo Pielke</b><small>estrategista e coprodutor</small></span></figcaption>
+          </figure>
+          <figure class="testi glass" data-tilt>
+            <svg class="i i-fill testi-q" aria-hidden="true"><use href="#i-quote"/></svg>
+            <blockquote>“As páginas que desenvolveram ficaram muito boas. Até indiquei para os meus colegas que buscam essa entrega qualificada. Parabéns!”</blockquote>
+            <figcaption><span class="av av-lg" aria-hidden="true">HM</span><span><b>Henrique Muniz</b><small>coprodutor e estrategista, setor médico</small></span></figcaption>
+          </figure>
+          <figure class="testi glass" data-tilt>
+            <svg class="i i-fill testi-q" aria-hidden="true"><use href="#i-quote"/></svg>
+            <blockquote>“Muitos anos trabalhando juntos com total confiança. A cada projeto, entrega com toda excelência. Obrigado por toda a parceria.”</blockquote>
+            <figcaption><span class="av av-lg" aria-hidden="true">RB</span><span><b>Roberto Bastos</b><small>estrategista, setor de fonoaudiologia</small></span></figcaption>
+          </figure>
+        </div>
+
+        <ul class="stats" role="list" data-reveal>
+          <li><strong>+<span data-count="250">250</span></strong><span>projetos</span></li>
+          <li><strong>+<span data-count="5">5</span></strong><span>anos de mercado</span></li>
+          <li class="stats-sectors"><strong class="stats-label">Setores</strong><span>clínico, médico, wellness e digital</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 9. FAQ ============ -->
+    <section class="sec" aria-labelledby="s9-title">
+      <div class="wrap wrap-narrow">
+        <header class="sec-head" data-reveal>
+          <h2 id="s9-title">Perguntas frequentes</h2>
+          <p>Ficou alguma dúvida? Chama no WhatsApp que a gente responde.</p>
+        </header>
+
+        <div class="faq" data-faq data-reveal>
+          <details name="faq" open>
+            <summary>Como funciona o pagamento?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>Você pode parcelar em até 12x no cartão ou pagar 50% para iniciar o projeto e os outros 50% na entrega da página.</p></div>
+          </details>
+          <details name="faq">
+            <summary>Por que o valor é menor que o dos projetos da Galaxy?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>Porque o escopo é definido e enxuto. A Galaxy Starter foi criada para negócios que precisam de uma página com padrão profissional, mas ainda não podem investir de R$ 1.997 a R$ 4.000. O time e o cuidado são os mesmos.</p></div>
+          </details>
+          <details name="faq">
+            <summary>Preciso escrever os textos da página?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>Não. A copy está inclusa. Você responde o briefing e nós escrevemos toda a página. Você aprova o texto antes de partirmos para o desenvolvimento.</p></div>
+          </details>
+          <!-- CONFIRMAR: resposta 4 -->
+          <details name="faq">
+            <summary>Quando começa a contar o prazo de entrega?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>O prazo de até 4 dias úteis (Galaxy Page) ou até 7 dias úteis (Galaxy Professional) começa a contar a partir do recebimento do briefing preenchido.</p></div>
+          </details>
+          <!-- CONFIRMAR: resposta 5 -->
+          <details name="faq">
+            <summary>E se eu quiser mudar alguma coisa?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>Os dois planos incluem 2 rodadas de ajustes gratuitas depois que enviamos a página para sua aprovação. Ajustes além disso são combinados à parte.</p></div>
+          </details>
+          <!-- CONFIRMAR: resposta 6 -->
+          <details name="faq">
+            <summary>A hospedagem está mesmo inclusa?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>Sim. Você tem 1 ano de hospedagem grátis. Depois desse período, apresentamos as opções para manter a página no ar.</p></div>
+          </details>
+          <details name="faq">
+            <summary>Posso receber a página e pagar só se gostar?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>Não. Trabalhamos com processo: briefing, copy aprovada, referências e desenvolvimento com aprovação. Esse método é o que garante que a página chegue do jeito certo, sem retrabalho.</p></div>
+          </details>
+          <details name="faq">
+            <summary>Como eu fecho o projeto?<span class="faq-ic" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary>
+            <div class="faq-a"><p>Escolha o plano nesta página e clique no botão. Você cai direto no nosso WhatsApp com o plano selecionado e fecha com a equipe na conversa. A condição vale para quem chamar e fechar no mesmo dia.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. CTA FINAL ============ -->
+    <section class="sec sec-cta" aria-labelledby="s10-title">
+      <div class="wrap">
+        <div class="cta glass featured" data-reveal>
+          <span class="feat-glow" aria-hidden="true"></span>
+          <span class="feat-border" aria-hidden="true"><i></i></span>
+          <h2 id="s10-title">Sua página pode estar no ar ainda esta semana.</h2>
+          <p>Copy, hospedagem e suporte inclusos, a partir de R$ 597. A condição especial encerra hoje.</p>
+
+          <div class="tblocks" role="timer" aria-label="Tempo restante da condição especial">
+            <div class="tb"><strong data-countdown="h">23</strong><span>horas</span></div>
+            <div class="tb"><strong data-countdown="m">59</strong><span>minutos</span></div>
+            <div class="tb"><strong data-countdown="s">59</strong><span>segundos</span></div>
+          </div>
+
+          <div class="cta-btns">
+            <a class="btn btn-primary" href="#planos"><span class="btn-label">Escolher meu plano</span></a>
+            <a class="btn btn-secondary" href="https://wa.me/5571999278413?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener" data-plan="Dúvida">
+              <svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Tirar uma dúvida</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="footer">
+    <div class="wrap footer-in">
+      <p>Galaxy Media © 2026. Todos os direitos reservados. CNPJ 46.099.665/0001-03</p>
+      <a href="https://site.wegalaxymedia.com" target="_blank" rel="noopener">Conheça o site da Galaxy Media<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- ============ DOCK MOBILE ============ -->
+  <div class="dock" data-dock aria-hidden="true">
+    <div class="dock-tx">
+      <span>Encerra em</span>
+      <strong class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</strong>
+    </div>
+    <a class="btn btn-primary" href="#planos" tabindex="-1"><span class="btn-label">Fechar hoje</span></a>
+  </div>
+
+  <!-- ============ MODAL DAS CENAS (desktop) ============ -->
+  <dialog class="modal" data-modal aria-labelledby="modal-title">
+    <div class="modal-box glass">
+      <button class="modal-close" type="button" aria-label="Fechar" data-modal-close><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button>
+      <div class="stage modal-stage" data-modal-stage></div>
+      <div class="modal-tx">
+        <h3 id="modal-title" data-modal-title></h3>
+        <p data-modal-text></p>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
