@@ -668,7 +668,6 @@
       .fromTo($$('.wi', title), { yPercent: 115 }, { yPercent: 0, duration: 1, ease: 'power4.out', stagger: 0.05, onComplete: restore }, 0.2)
       .fromTo('[data-h="sub"]', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7 }, 0.7)
       .fromTo('[data-h="ben"]', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.08, ease: 'back.out(1.4)' }, 0.85)
-      .fromTo('[data-h="price"]', { opacity: 0, y: 16, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.7 }, 0.95)
       .fromTo('[data-h="ctas"]', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, onComplete: function () { shineOnce($('[data-hero-primary]')); } }, 1.05)
       .fromTo('[data-h="micro"]', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 1.2)
       .fromTo('[data-mockup]', { opacity: 0, y: 120, rotationX: 14 }, { opacity: 1, y: 0, rotationX: 0, duration: 1.4 }, 1.0)
