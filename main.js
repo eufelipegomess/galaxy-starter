@@ -332,7 +332,6 @@
       }, { passive: true });
     }
   }
-  starfield();
 
   /* -------------------------------------------------------
      Utilidades de animação
@@ -679,19 +678,28 @@
     });
   }
 
-  (function heroIntro() {
+  // Decoração do hero (estrelas, mockup, chips) começa depois do carregamento,
+  // para não disputar o processador com a primeira exibição da página.
+  function afterLoad(fn) {
+    var done = false;
+    function go() { if (!done) { done = true; fn(); } }
+    if (d.readyState === 'complete') setTimeout(go, 0);
+    else window.addEventListener('load', function () { setTimeout(go, 0); });
+    setTimeout(go, 1500);
+  }
+
+  afterLoad(function heroIntro() {
+    starfield();
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.fromTo('[data-stars]', { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'none' }, 0)
-      .fromTo('[data-h="ben"]', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.08, ease: 'back.out(1.4)' }, 0.1)
-      .add(function () { shineOnce($('[data-hero-primary]')); }, 0.6)
-      .fromTo('[data-h="micro"]', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.4)
-      .fromTo('[data-mockup]', { opacity: 0, y: 120, rotationX: 14 }, { opacity: 1, y: 0, rotationX: 0, duration: 1.4 }, 0.3)
-      .fromTo('[data-sk]', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, 0.9)
-      .fromTo('[data-prog]', { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: 'power2.inOut' }, 1.5)
-      .fromTo('[data-chip]', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', stagger: 0.15 }, 1.7)
-      .fromTo('[data-toast]', { opacity: 0, scale: 0.7, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' }, 2.9)
-      .add(chipsFloat, 3.5);
-  })();
+      .add(function () { shineOnce($('[data-hero-primary]')); }, 0.2)
+      .fromTo('[data-mockup]', { opacity: 0, y: 120, rotationX: 14 }, { opacity: 1, y: 0, rotationX: 0, duration: 1.4 }, 0)
+      .fromTo('[data-sk]', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, 0.6)
+      .fromTo('[data-prog]', { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: 'power2.inOut' }, 1.2)
+      .fromTo('[data-chip]', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', stagger: 0.15 }, 1.4)
+      .fromTo('[data-toast]', { opacity: 0, scale: 0.7, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' }, 2.6)
+      .add(chipsFloat, 3.2);
+  });
 
   // Mockup endireita de 8° para 0° no scroll (o 8° inicial vem do CSS)
   gsap.fromTo('.mockup-scroll', { rotationX: 8 }, {

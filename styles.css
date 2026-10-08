@@ -1782,9 +1782,7 @@ h3 {
 /* =========================================================
    Estados iniciais da animação (só com JS + movimento permitido)
    ========================================================= */
-/* Texto e botões do hero aparecem na hora (não esperam o JS) */
-.js-anim [data-h="ben"],
-.js-anim [data-h="micro"],
+/* Texto, benefícios e botões do hero aparecem na hora (não esperam o JS) */
 .js-anim [data-mockup],
 .js-anim [data-chip],
 .js-anim [data-toast],

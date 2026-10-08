@@ -22,13 +22,11 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://connect.facebook.net">
-  <!-- styles.min.css e main.min.js são gerados a partir de styles.css e main.js:
-       npx -y esbuild@0.24.0 styles.css --minify --outfile=styles.min.css
-       npx -y esbuild@0.24.0 main.js --minify --outfile=main.min.js
-       (sem package.json na raiz: o servidor publica a pasta como site estático) -->
-  <link rel="stylesheet" href="styles.min.css?v=9">
+  <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
+       (fontes: styles.css, main.js e vendor/). Depois do build, suba o ?v= abaixo.
+       Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
+  <link rel="stylesheet" href="styles.min.css?v=10">
 
   <script>
     // Prepara o estado inicial das animações só se houver JS e movimento permitido.
@@ -43,9 +41,7 @@
     })();
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="main.min.js?v=9" defer></script>
+  <script src="app.min.js?v=10" defer></script>
 
   <!-- Meta Pixel (Galaxy Starter) -->
   <script>
