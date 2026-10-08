@@ -489,6 +489,21 @@
       return { main: tl, idle: idle };
     },
 
+    brandkit: function (s, q, qa) {
+      var tl = gsap.timeline({ paused: true });
+      tl.from(q('.kit'), { opacity: 0, y: 16, duration: 0.5, ease: 'power3.out' })
+        .from(q('.kit-head'), { opacity: 0, duration: 0.3 }, '-=0.15')
+        .fromTo(q('.kit-mark'), { opacity: 0, scale: 0.3, rotation: -40 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.6, ease: 'back.out(2)' })
+        .from(q('.kit-word'), { opacity: 0, x: -10, duration: 0.45, ease: 'power3.out' }, '-=0.25')
+        .from(qa('.sw'), { opacity: 0, scale: 0.6, duration: 0.4, stagger: 0.1, ease: 'back.out(2)' }, '+=0.05')
+        .from(q('.kit-type'), { opacity: 0, y: 8, duration: 0.4 }, '-=0.2')
+        .from(q('.kit-aa'), { opacity: 0, scale: 0.8, duration: 0.45, ease: 'back.out(1.8)' }, '-=0.15')
+        .fromTo(qa('.kit-fonts .ln'), { scaleX: 0 }, { scaleX: 1, duration: 0.35, stagger: 0.12, ease: 'power2.out' }, '-=0.2');
+      var idle = gsap.timeline({ paused: true });
+      idle.add(floatTl(q('.sc-main')), 0);
+      return { main: tl, idle: idle };
+    },
+
     /* ---- Mini-cenas do processo ---- */
     'm-brief': function (s, q, qa) {
       var tl = gsap.timeline({ paused: true });
@@ -588,10 +603,19 @@
     return { start: start };
   }
 
-  $$('.scard').forEach(function (card) {
+  $$('.scard, [data-scene-card]').forEach(function (card) {
     var sc = $('.scene', card);
     if (sc) controlScene(card, sc, true);
   });
+
+  // Bônus: "R$ 800" riscado quando o bloco entra na tela
+  var bonusStrike = $('.bonus .strike');
+  if (bonusStrike) {
+    gsap.fromTo(bonusStrike, { scaleX: 0 }, {
+      scaleX: 1, duration: 0.6, ease: 'power2.inOut', delay: 0.4,
+      scrollTrigger: { trigger: '.bonus-price', start: 'top 85%', once: true }
+    });
+  }
 
   /* -------------------------------------------------------
      Hero: timeline de entrada
@@ -644,6 +668,7 @@
       .fromTo($$('.wi', title), { yPercent: 115 }, { yPercent: 0, duration: 1, ease: 'power4.out', stagger: 0.05, onComplete: restore }, 0.2)
       .fromTo('[data-h="sub"]', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7 }, 0.7)
       .fromTo('[data-h="ben"]', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.08, ease: 'back.out(1.4)' }, 0.85)
+      .fromTo('[data-h="price"]', { opacity: 0, y: 16, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.7 }, 0.95)
       .fromTo('[data-h="ctas"]', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, onComplete: function () { shineOnce($('[data-hero-primary]')); } }, 1.05)
       .fromTo('[data-h="micro"]', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 1.2)
       .fromTo('[data-mockup]', { opacity: 0, y: 120, rotationX: 14 }, { opacity: 1, y: 0, rotationX: 0, duration: 1.4 }, 1.0)
