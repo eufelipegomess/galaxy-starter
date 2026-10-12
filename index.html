@@ -26,7 +26,7 @@
   <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
        (fontes: styles.css, main.js e vendor/). Depois do build, suba o ?v= abaixo.
        Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
-  <link rel="stylesheet" href="styles.min.css?v=10">
+  <link rel="stylesheet" href="styles.min.css?v=11">
 
   <script>
     // Prepara o estado inicial das animações só se houver JS e movimento permitido.
@@ -41,7 +41,7 @@
     })();
   </script>
 
-  <script src="app.min.js?v=10" defer></script>
+  <script src="app.min.js?v=11" defer></script>
 
   <!-- Meta Pixel (Galaxy Starter) -->
   <script>
@@ -55,6 +55,14 @@
       fbq('init', PIXEL_ID);
       fbq('track', 'PageView');
     })();
+  </script>
+  <!-- Microsoft Clarity -->
+  <script>
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ywkfxil471");
   </script>
 </head>
 <body>
@@ -133,9 +141,11 @@
         </ul>
 
         <div class="hero-ctas" data-h="ctas">
-          <a class="btn btn-primary" href="#planos" data-hero-primary><span class="btn-label">Quero minha página hoje</span></a>
-          <a class="btn btn-secondary" href="#como-funciona"><span class="btn-label">Ver como funciona</span></a>
+          <a class="btn btn-primary" href="#planos" data-hero-primary><span class="btn-label">Ver planos e valores</span></a>
+          <a class="btn btn-secondary" href="https://wa.me/5571996723809?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener" data-plan="Dúvida (hero)"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Falar no WhatsApp</span></a>
         </div>
+
+        <p class="hero-price-line">A partir de <strong>R$ 597</strong> <span aria-hidden="true">·</span> em até 12x no cartão</p>
 
         <div class="proof" data-h="micro">
           <span class="avatars" aria-hidden="true">
@@ -188,6 +198,193 @@
         <div class="ftoast" data-toast>
           <span class="ftoast-ic"><svg class="i"><use href="#i-check"/></svg></span>
           <span><strong>Página publicada</strong><small>Pronta para receber clientes</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. PLANOS ============ -->
+    <section class="sec sec-plans" id="planos" aria-labelledby="s5-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="s5-title">Escolha o seu formato e fale com a gente hoje.</h2>
+          <p>Ao clicar, você vai direto para o nosso WhatsApp com o plano já selecionado. O projeto é fechado na conversa.</p>
+        </header>
+
+        <div class="plans" data-reveal-group>
+          <article class="plan glass" data-tilt>
+            <h3 class="plan-name">Galaxy Page</h3>
+            <p class="plan-desc">Uma landing page objetiva para apresentar seu serviço, captar contatos ou vender uma oferta.</p>
+            <p class="plan-price"><small>a partir de</small> <strong>R$ 597</strong></p>
+            <p class="plan-pay">em até 12x no cartão ou 50% + 50%</p>
+            <hr class="divider">
+            <ul class="blist" role="list">
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Landing page de até 11 seções</b></span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Copy completa inclusa</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 4 dias úteis</b></span></li>
+              <li class="li-bonus"><span class="chk chk-gift"><svg class="i"><use href="#i-gift"/></svg></span><span><b>Bônus de hoje:</b> Logo Kit grátis (logo, cores e tipografia)</span></li>
+            </ul>
+            <p class="plan-ideal"><b>Ideal para:</b> profissionais, prestadores de serviço, eventos e lançamentos.</p>
+            <a class="btn btn-primary btn-block" href="https://wa.me/5571996723809?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20quero%20fechar%20o%20Galaxy%20Page%20hoje." target="_blank" rel="noopener" data-plan="Galaxy Page">
+              <svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Quero o Galaxy Page</span>
+            </a>
+            <p class="plan-micro">Você escolhe, chama e fecha direto com a equipe.</p>
+          </article>
+
+          <article class="plan glass featured" data-tilt>
+            <span class="feat-glow" aria-hidden="true"></span>
+            <span class="feat-border" aria-hidden="true"><i></i></span>
+            <span class="badge">Mais completo</span>
+            <h3 class="plan-name">Galaxy Professional</h3>
+            <p class="plan-desc">Para empresas que precisam de mais espaço para mostrar estrutura, serviços e diferenciais.</p>
+            <p class="plan-price"><small>a partir de</small> <strong>R$ 997</strong></p>
+            <p class="plan-pay">em até 12x no cartão ou 50% + 50%</p>
+            <hr class="divider">
+            <ul class="blist" role="list">
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Site de 12 a 14 seções ou até 2 páginas institucionais</b></span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Copy completa inclusa</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 7 dias úteis</b></span></li>
+              <li class="li-bonus"><span class="chk chk-gift"><svg class="i"><use href="#i-gift"/></svg></span><span><b>Bônus de hoje:</b> Logo Kit grátis (logo, cores e tipografia)</span></li>
+            </ul>
+            <p class="plan-ideal"><b>Ideal para:</b> empresas, clínicas e negócios com mais de um serviço.</p>
+            <a class="btn btn-primary btn-block" href="https://wa.me/5571996723809?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20quero%20fechar%20o%20Galaxy%20Professional%20hoje." target="_blank" rel="noopener" data-plan="Galaxy Professional">
+              <svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Quero o Galaxy Professional</span>
+            </a>
+            <p class="plan-micro">Você escolhe, chama e fecha direto com a equipe.</p>
+          </article>
+        </div>
+
+        <article class="bonus glass" data-scene-card data-reveal>
+          <div class="bonus-art">
+            <div class="stage stage-bonus"><div class="scene" data-scene="brandkit" data-sw="320" data-sh="230">
+              <div class="kit sc-main">
+                <div class="kit-head">
+                  <span class="kit-mark" aria-hidden="true"><i></i></span>
+                  <span class="kit-word">suamarca</span>
+                  <span class="kit-lab">Logo</span>
+                </div>
+                <div class="kit-sw">
+                  <span class="sw"><i style="background:#2A1A63"></i><small>#2A1A63</small></span>
+                  <span class="sw"><i style="background:#7043DD"></i><small>#7043DD</small></span>
+                  <span class="sw"><i style="background:#BA9DFF"></i><small>#BA9DFF</small></span>
+                  <span class="sw"><i style="background:#F2EEFF;box-shadow:inset 0 0 0 1px #E2DBF5"></i><small>#F2EEFF</small></span>
+                </div>
+                <div class="kit-type">
+                  <span class="kit-aa">Aa</span>
+                  <span class="kit-fonts"><b>Família tipográfica</b><i class="ln"></i><i class="ln ln-s"></i></span>
+                </div>
+              </div>
+            </div></div>
+          </div>
+          <div class="bonus-tx">
+            <span class="bonus-tag"><svg class="i" aria-hidden="true"><use href="#i-gift"/></svg>Bônus para quem fechar hoje</span>
+            <h3>Não tem uma logo? Você ganha um Logo Kit completo.</h3>
+            <p>Para sua página e seu negócio ficarem com cara profissional desde o primeiro dia. Vale para os dois planos.</p>
+            <ul class="blist" role="list">
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Logo</b> criada para o seu negócio</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Paleta de cores</b> da sua marca</span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Família tipográfica</b> para a página e o negócio</span></li>
+            </ul>
+            <p class="bonus-price"><span class="bp-old">R$ 800<i class="strike" aria-hidden="true"></i></span><span class="bp-new">Grátis hoje</span></p>
+          </div>
+        </article>
+
+        <p class="urg-pill" data-reveal>
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>Esses valores valem só para quem chamar e fechar hoje. Encerra em <strong class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</strong></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PORTFÓLIO (carrossel) ============ -->
+    <section class="sec sec-pf" id="portfolio" aria-labelledby="pf-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <h2 id="pf-title">Mais de 400 páginas no ar com a assinatura da Galaxy.</h2>
+          <p>Alguns dos projetos que já entregamos. O mesmo time, o mesmo processo e o mesmo padrão que você recebe na Galaxy Starter.</p>
+        </header>
+      </div>
+
+      <div class="pf-rows" data-reveal>
+        <div class="pf-row" data-marquee>
+          <ul class="pf-track" role="list">
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/01-960.webp" srcset="assets/portfolio/01-640.webp 640w, assets/portfolio/01-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/02-960.webp" srcset="assets/portfolio/02-640.webp 640w, assets/portfolio/02-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/03-960.webp" srcset="assets/portfolio/03-640.webp 640w, assets/portfolio/03-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/04-960.webp" srcset="assets/portfolio/04-640.webp 640w, assets/portfolio/04-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/05-960.webp" srcset="assets/portfolio/05-640.webp 640w, assets/portfolio/05-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/06-960.webp" srcset="assets/portfolio/06-640.webp 640w, assets/portfolio/06-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/07-960.webp" srcset="assets/portfolio/07-640.webp 640w, assets/portfolio/07-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/08-960.webp" srcset="assets/portfolio/08-640.webp 640w, assets/portfolio/08-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="pf-row pf-rev" data-marquee>
+          <ul class="pf-track" role="list">
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/09-960.webp" srcset="assets/portfolio/09-640.webp 640w, assets/portfolio/09-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/10-960.webp" srcset="assets/portfolio/10-640.webp 640w, assets/portfolio/10-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/11-960.webp" srcset="assets/portfolio/11-640.webp 640w, assets/portfolio/11-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/12-960.webp" srcset="assets/portfolio/12-640.webp 640w, assets/portfolio/12-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/13-960.webp" srcset="assets/portfolio/13-640.webp 640w, assets/portfolio/13-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/14-960.webp" srcset="assets/portfolio/14-640.webp 640w, assets/portfolio/14-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+            <li class="pf">
+              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
+              <div class="pf-shot"><img src="assets/portfolio/15-960.webp" srcset="assets/portfolio/15-640.webp 640w, assets/portfolio/15-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="pf-note" role="note" data-reveal>
+          <span class="pf-note-ic" aria-hidden="true"><svg class="i"><use href="#i-shield-check"/></svg></span>
+          <p><strong>Atenção: são mais de 400 páginas desenvolvidas pela Galaxy Media.</strong> Você não está testando um serviço novo. Está entrando em um processo validado em centenas de projetos, com o mesmo cuidado em cada entrega.</p>
         </div>
       </div>
     </section>
@@ -472,193 +669,6 @@
       </div>
     </section>
 
-    <!-- ============ PORTFÓLIO (carrossel) ============ -->
-    <section class="sec sec-pf" id="portfolio" aria-labelledby="pf-title">
-      <div class="wrap">
-        <header class="sec-head" data-reveal>
-          <h2 id="pf-title">Mais de 400 páginas no ar com a assinatura da Galaxy.</h2>
-          <p>Alguns dos projetos que já entregamos. O mesmo time, o mesmo processo e o mesmo padrão que você recebe na Galaxy Starter.</p>
-        </header>
-      </div>
-
-      <div class="pf-rows" data-reveal>
-        <div class="pf-row" data-marquee>
-          <ul class="pf-track" role="list">
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/01-960.webp" srcset="assets/portfolio/01-640.webp 640w, assets/portfolio/01-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/02-960.webp" srcset="assets/portfolio/02-640.webp 640w, assets/portfolio/02-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/03-960.webp" srcset="assets/portfolio/03-640.webp 640w, assets/portfolio/03-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/04-960.webp" srcset="assets/portfolio/04-640.webp 640w, assets/portfolio/04-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/05-960.webp" srcset="assets/portfolio/05-640.webp 640w, assets/portfolio/05-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/06-960.webp" srcset="assets/portfolio/06-640.webp 640w, assets/portfolio/06-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/07-960.webp" srcset="assets/portfolio/07-640.webp 640w, assets/portfolio/07-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/08-960.webp" srcset="assets/portfolio/08-640.webp 640w, assets/portfolio/08-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-          </ul>
-        </div>
-        <div class="pf-row pf-rev" data-marquee>
-          <ul class="pf-track" role="list">
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/09-960.webp" srcset="assets/portfolio/09-640.webp 640w, assets/portfolio/09-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/10-960.webp" srcset="assets/portfolio/10-640.webp 640w, assets/portfolio/10-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/11-960.webp" srcset="assets/portfolio/11-640.webp 640w, assets/portfolio/11-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/12-960.webp" srcset="assets/portfolio/12-640.webp 640w, assets/portfolio/12-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/13-960.webp" srcset="assets/portfolio/13-640.webp 640w, assets/portfolio/13-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/14-960.webp" srcset="assets/portfolio/14-640.webp 640w, assets/portfolio/14-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-            <li class="pf">
-              <div class="pf-bar" aria-hidden="true"><span class="win-dots"><i></i><i></i><i></i></span><span class="pf-url"></span></div>
-              <div class="pf-shot"><img src="assets/portfolio/15-960.webp" srcset="assets/portfolio/15-640.webp 640w, assets/portfolio/15-960.webp 960w" sizes="(max-width: 860px) 290px, 440px" alt="Página desenvolvida pela Galaxy Media" width="960" height="455" loading="lazy" decoding="async"></div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="wrap">
-        <div class="pf-note" role="note" data-reveal>
-          <span class="pf-note-ic" aria-hidden="true"><svg class="i"><use href="#i-shield-check"/></svg></span>
-          <p><strong>Atenção: são mais de 400 páginas desenvolvidas pela Galaxy Media.</strong> Você não está testando um serviço novo. Está entrando em um processo validado em centenas de projetos, com o mesmo cuidado em cada entrega.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 5. PLANOS ============ -->
-    <section class="sec sec-plans" id="planos" aria-labelledby="s5-title">
-      <div class="wrap">
-        <header class="sec-head" data-reveal>
-          <h2 id="s5-title">Escolha o seu formato e fale com a gente hoje.</h2>
-          <p>Ao clicar, você vai direto para o nosso WhatsApp com o plano já selecionado. O projeto é fechado na conversa.</p>
-        </header>
-
-        <div class="plans" data-reveal-group>
-          <article class="plan glass" data-tilt>
-            <h3 class="plan-name">Galaxy Page</h3>
-            <p class="plan-desc">Uma landing page objetiva para apresentar seu serviço, captar contatos ou vender uma oferta.</p>
-            <p class="plan-price"><small>a partir de</small> <strong>R$ 597</strong></p>
-            <p class="plan-pay">em até 12x no cartão ou 50% + 50%</p>
-            <hr class="divider">
-            <ul class="blist" role="list">
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Landing page de até 11 seções</b></span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Copy completa inclusa</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 4 dias úteis</b></span></li>
-              <li class="li-bonus"><span class="chk chk-gift"><svg class="i"><use href="#i-gift"/></svg></span><span><b>Bônus de hoje:</b> Logo Kit grátis (logo, cores e tipografia)</span></li>
-            </ul>
-            <p class="plan-ideal"><b>Ideal para:</b> profissionais, prestadores de serviço, eventos e lançamentos.</p>
-            <a class="btn btn-primary btn-block" href="https://wa.me/5571996723809?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20quero%20fechar%20o%20Galaxy%20Page%20hoje." target="_blank" rel="noopener" data-plan="Galaxy Page">
-              <svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Quero o Galaxy Page</span>
-            </a>
-            <p class="plan-micro">Você escolhe, chama e fecha direto com a equipe.</p>
-          </article>
-
-          <article class="plan glass featured" data-tilt>
-            <span class="feat-glow" aria-hidden="true"></span>
-            <span class="feat-border" aria-hidden="true"><i></i></span>
-            <span class="badge">Mais completo</span>
-            <h3 class="plan-name">Galaxy Professional</h3>
-            <p class="plan-desc">Para empresas que precisam de mais espaço para mostrar estrutura, serviços e diferenciais.</p>
-            <p class="plan-price"><small>a partir de</small> <strong>R$ 997</strong></p>
-            <p class="plan-pay">em até 12x no cartão ou 50% + 50%</p>
-            <hr class="divider">
-            <ul class="blist" role="list">
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Site de 12 a 14 seções ou até 2 páginas institucionais</b></span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Copy completa inclusa</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 7 dias úteis</b></span></li>
-              <li class="li-bonus"><span class="chk chk-gift"><svg class="i"><use href="#i-gift"/></svg></span><span><b>Bônus de hoje:</b> Logo Kit grátis (logo, cores e tipografia)</span></li>
-            </ul>
-            <p class="plan-ideal"><b>Ideal para:</b> empresas, clínicas e negócios com mais de um serviço.</p>
-            <a class="btn btn-primary btn-block" href="https://wa.me/5571996723809?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20quero%20fechar%20o%20Galaxy%20Professional%20hoje." target="_blank" rel="noopener" data-plan="Galaxy Professional">
-              <svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Quero o Galaxy Professional</span>
-            </a>
-            <p class="plan-micro">Você escolhe, chama e fecha direto com a equipe.</p>
-          </article>
-        </div>
-
-        <article class="bonus glass" data-scene-card data-reveal>
-          <div class="bonus-art">
-            <div class="stage stage-bonus"><div class="scene" data-scene="brandkit" data-sw="320" data-sh="230">
-              <div class="kit sc-main">
-                <div class="kit-head">
-                  <span class="kit-mark" aria-hidden="true"><i></i></span>
-                  <span class="kit-word">suamarca</span>
-                  <span class="kit-lab">Logo</span>
-                </div>
-                <div class="kit-sw">
-                  <span class="sw"><i style="background:#2A1A63"></i><small>#2A1A63</small></span>
-                  <span class="sw"><i style="background:#7043DD"></i><small>#7043DD</small></span>
-                  <span class="sw"><i style="background:#BA9DFF"></i><small>#BA9DFF</small></span>
-                  <span class="sw"><i style="background:#F2EEFF;box-shadow:inset 0 0 0 1px #E2DBF5"></i><small>#F2EEFF</small></span>
-                </div>
-                <div class="kit-type">
-                  <span class="kit-aa">Aa</span>
-                  <span class="kit-fonts"><b>Família tipográfica</b><i class="ln"></i><i class="ln ln-s"></i></span>
-                </div>
-              </div>
-            </div></div>
-          </div>
-          <div class="bonus-tx">
-            <span class="bonus-tag"><svg class="i" aria-hidden="true"><use href="#i-gift"/></svg>Bônus para quem fechar hoje</span>
-            <h3>Não tem uma logo? Você ganha um Logo Kit completo.</h3>
-            <p>Para sua página e seu negócio ficarem com cara profissional desde o primeiro dia. Vale para os dois planos.</p>
-            <ul class="blist" role="list">
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Logo</b> criada para o seu negócio</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Paleta de cores</b> da sua marca</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Família tipográfica</b> para a página e o negócio</span></li>
-            </ul>
-            <p class="bonus-price"><span class="bp-old">R$ 800<i class="strike" aria-hidden="true"></i></span><span class="bp-new">Grátis hoje</span></p>
-          </div>
-        </article>
-
-        <p class="urg-pill" data-reveal>
-          <span class="pulse-dot" aria-hidden="true"></span>
-          <span>Esses valores valem só para quem chamar e fechar hoje. Encerra em <strong class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</strong></span>
-        </p>
-      </div>
-    </section>
-
     <!-- ============ 6. COMO FUNCIONA ============ -->
     <section class="sec" id="como-funciona" aria-labelledby="s6-title">
       <div class="wrap">
@@ -898,11 +908,15 @@
 
   <!-- ============ DOCK MOBILE ============ -->
   <div class="dock" data-dock aria-hidden="true">
-    <div class="dock-tx">
-      <span>Encerra em</span>
-      <strong class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</strong>
+    <p class="dock-bonus"><svg class="i" aria-hidden="true"><use href="#i-gift"/></svg><span>Bônus <b>Logo Kit</b> (R$ 800) garantido fechando hoje</span></p>
+    <div class="dock-row">
+      <div class="dock-tx">
+        <span class="dock-from">a partir de</span>
+        <strong class="dock-price">R$ 597</strong>
+        <span class="dock-timer">encerra em <b class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</b></span>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/5571996723809?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Galaxy%20Starter%20e%20quero%20fechar%20hoje." target="_blank" rel="noopener" tabindex="-1" data-plan="Fechar hoje (barra fixa)"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="btn-label">Fechar hoje</span></a>
     </div>
-    <a class="btn btn-primary" href="#planos" tabindex="-1"><span class="btn-label">Fechar hoje</span></a>
   </div>
 
   <!-- ============ MODAL DAS CENAS (desktop) ============ -->

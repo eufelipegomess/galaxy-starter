@@ -595,6 +595,15 @@ h3 {
 .pay-micro .chk { width: 18px; height: 18px; }
 .pay-micro .chk .i { width: 11px; height: 11px; }
 
+.hero-price-line {
+  margin-top: 16px;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+.hero-price-line strong { font-weight: 600; color: var(--ink); }
+.hero-price-line span { margin: 0 4px; color: var(--dim); }
+.hero-ctas .btn-secondary .i-fill { color: var(--green); }
+
 .proof {
   display: inline-flex;
   align-items: center;
@@ -1716,7 +1725,7 @@ h3 {
 .footer a:hover { color: var(--ink); }
 .footer a .i { width: 15px; height: 15px; transition: transform .3s var(--ease); }
 .footer a:hover .i { transform: translateX(3px); }
-@media (max-width: 860px) { .footer { padding-bottom: calc(112px + env(safe-area-inset-bottom)); } }
+@media (max-width: 860px) { .footer { padding-bottom: calc(150px + env(safe-area-inset-bottom)); } }
 
 /* =========================================================
    Dock mobile
@@ -1725,28 +1734,45 @@ h3 {
 @media (max-width: 860px) {
   .dock {
     position: fixed;
-    left: max(12px, env(safe-area-inset-left));
-    right: max(12px, env(safe-area-inset-right));
-    bottom: calc(12px + env(safe-area-inset-bottom));
+    left: max(10px, env(safe-area-inset-left));
+    right: max(10px, env(safe-area-inset-right));
+    bottom: calc(10px + env(safe-area-inset-bottom));
     z-index: 60;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 10px 10px 10px 16px;
+    display: block;
+    overflow: hidden;
     border-radius: 16px;
-    background: rgba(16, 10, 34, .88);
-    border: 1px solid rgba(251, 250, 255, .1);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 20px 50px -10px rgba(0, 0, 0, .9);
+    background: rgba(16, 10, 34, .92);
+    border: 1px solid rgba(186, 157, 255, .22);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 20px 50px -10px rgba(0, 0, 0, .9), 0 0 40px -12px rgba(112, 67, 221, .6);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     transform: translateY(calc(100% + 24px + env(safe-area-inset-bottom)));
     transition: transform .5s var(--ease);
   }
   .dock.is-on { transform: translateY(0); }
-  .dock-tx span { display: block; font-size: 12px; color: var(--dim); line-height: 1.2; }
-  .dock-tx strong { display: block; font-size: 19px; font-weight: 600; color: var(--red-soft); line-height: 1.2; letter-spacing: .01em; }
-  .dock .btn { height: 48px; padding: 0 22px; font-size: 15px; }
+  .dock-bonus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 6px 12px;
+    background: linear-gradient(90deg, rgba(112, 67, 221, .38), rgba(186, 157, 255, .22));
+    border-bottom: 1px solid rgba(186, 157, 255, .2);
+    font-size: 12px;
+    line-height: 1.3;
+    color: #EDE6FF;
+    text-align: center;
+  }
+  .dock-bonus .i { width: 14px; height: 14px; flex: none; color: var(--lilac); }
+  .dock-bonus b { font-weight: 600; color: var(--ink); }
+  .dock-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 9px 9px 14px; }
+  .dock-tx { display: grid; grid-template-columns: auto auto; align-items: baseline; justify-content: start; column-gap: 6px; row-gap: 1px; min-width: 0; }
+  .dock-from { font-size: 11.5px; color: var(--dim); }
+  .dock-price { font-size: 22px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .dock-timer { grid-column: 1 / -1; font-size: 11.5px; color: var(--dim); white-space: nowrap; }
+  .dock-timer b { font-weight: 600; color: var(--red-soft); font-variant-numeric: tabular-nums; }
+  .dock .btn { height: 48px; padding: 0 18px; font-size: 15px; flex: none; }
+  .dock .btn .i { width: 18px; height: 18px; }
 }
 
 /* =========================================================
