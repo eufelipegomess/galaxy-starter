@@ -1319,7 +1319,6 @@ h3 {
    ========================================================= */
 .plans { display: grid; gap: 24px; grid-template-columns: 1fr; max-width: 540px; margin-inline: auto; align-items: stretch; }
 @media (min-width: 861px) { .plans { grid-template-columns: 1fr 1fr; max-width: 1000px; } }
-@media (max-width: 860px) { .plans .featured { order: -1; } }
 .plan { display: flex; flex-direction: column; padding: clamp(24px, 3vw, 36px); }
 .badge {
   align-self: flex-start;
@@ -1336,7 +1335,10 @@ h3 {
 .plan-desc { margin-top: 10px; font-size: 15.5px; color: var(--muted); }
 .plan-price { margin-top: 26px; }
 .plan-price small { display: block; margin-bottom: 6px; font-size: 15px; color: var(--muted); }
-.plan-pay { margin-top: 10px; font-size: 14px; color: var(--dim); }
+.plan-price .pp-x { font-size: .42em; font-weight: 500; letter-spacing: -0.01em; color: var(--muted); margin-right: 6px; }
+.plan-pay { margin-top: 10px; font-size: 14.5px; color: var(--muted); }
+.plan-pay b { font-weight: 600; color: var(--ink); }
+.plan-total { margin-top: 4px; font-size: 12.5px; color: var(--dim); }
 .plan-ideal {
   margin: 24px 0 24px;
   margin-top: auto;
@@ -1766,10 +1768,10 @@ h3 {
   .dock-bonus .i { width: 14px; height: 14px; flex: none; color: var(--lilac); }
   .dock-bonus b { font-weight: 600; color: var(--ink); }
   .dock-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 9px 9px 14px; }
-  .dock-tx { display: grid; grid-template-columns: auto auto; align-items: baseline; justify-content: start; column-gap: 6px; row-gap: 1px; min-width: 0; }
+  .dock-tx { display: grid; grid-template-columns: auto; justify-content: start; row-gap: 1px; min-width: 0; }
   .dock-from { font-size: 11.5px; color: var(--dim); }
   .dock-price { font-size: 22px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
-  .dock-timer { grid-column: 1 / -1; font-size: 11.5px; color: var(--dim); white-space: nowrap; }
+  .dock-timer { font-size: 11.5px; color: var(--dim); white-space: nowrap; }
   .dock-timer b { font-weight: 600; color: var(--red-soft); font-variant-numeric: tabular-nums; }
   .dock .btn { height: 48px; padding: 0 18px; font-size: 15px; flex: none; }
   .dock .btn .i { width: 18px; height: 18px; }
