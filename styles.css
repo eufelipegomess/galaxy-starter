@@ -680,6 +680,7 @@ a.hero-tag, a.hero-tag span { white-space: nowrap; }
   }
   .hero-benefits .ibox { width: 36px; height: 36px; }
   .hero-ctas { flex-direction: column; align-items: stretch; max-width: 420px; margin-inline: auto; }
+  .hero-title { font-size: clamp(36px, 10vw, 38px); }
   .hero-sub { display: none; }
   .hero-benefits { margin-top: 24px; }
   .hero-bonus { margin-top: 18px; font-size: 13.5px; }
