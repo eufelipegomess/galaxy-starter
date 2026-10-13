@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Galaxy Starter — Sua página profissional no ar em até 4 dias úteis</title>
+  <title>Galaxy Starter — Sua página profissional no ar em 4 dias</title>
   <meta name="description" content="Landing pages e sites com copy, 1 ano de hospedagem e suporte inclusos. A partir de R$ 597, em até 12x. Condição válida para quem fechar hoje.">
   <meta name="theme-color" content="#080412">
   <meta name="color-scheme" content="dark">
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Galaxy Media">
-  <meta property="og:title" content="Galaxy Starter — Sua página profissional no ar em até 4 dias úteis">
+  <meta property="og:title" content="Galaxy Starter — Sua página profissional no ar em 4 dias">
   <meta property="og:description" content="Landing pages e sites com copy, 1 ano de hospedagem e suporte inclusos. A partir de R$ 597, em até 12x. Condição válida para quem fechar hoje.">
   <!-- PLACEHOLDER: og:url e og:image (1200x630) quando o domínio final estiver definido -->
   <!-- <meta property="og:url" content="https://starter.wegalaxymedia.com/"> -->
@@ -26,7 +26,7 @@
   <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
        (fontes: styles.css, main.js e vendor/). Depois do build, suba o ?v= abaixo.
        Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
-  <link rel="stylesheet" href="styles.min.css?v=12">
+  <link rel="stylesheet" href="styles.min.css?v=14">
 
   <script>
     // Prepara o estado inicial das animações só se houver JS e movimento permitido.
@@ -41,7 +41,7 @@
     })();
   </script>
 
-  <script src="app.min.js?v=11" defer></script>
+  <script src="app.min.js?v=13" defer></script>
 
   <!-- Meta Pixel (Galaxy Starter) -->
   <script>
@@ -120,15 +120,16 @@
       </div>
 
       <div class="wrap hero-in">
-        <p class="hero-tag" data-h="tag">
+        <a class="hero-tag" href="#planos" data-h="tag">
           <span class="tag-strong">Galaxy Starter</span>
           <span class="tag-sep" aria-hidden="true"></span>
           <span>Condição especial de entrada</span>
-        </p>
+          <svg class="i tag-arrow" aria-hidden="true"><use href="#i-arrow-down"/></svg>
+        </a>
 
         <h1 class="hero-title" id="hero-title" data-split>
-          <span class="line">Sua empresa com uma página profissional</span>
-          <span class="line grad-text">no ar em até 4 dias úteis.</span>
+          <span class="line">Sua empresa com uma página profissional no ar em 4 dias,</span>
+          <span class="line grad-text">a partir de R$&nbsp;597!</span>
         </h1>
 
         <p class="hero-sub" data-h="sub">Copy estratégica, 1 ano de hospedagem e suporte ativo inclusos. O padrão de entrega da Galaxy Media, num formato criado para quem quer dar o primeiro passo com a gente.</p>
@@ -137,8 +138,13 @@
           <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-pen-line"/></svg></span><span>Copy inclusa</span></li>
           <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-server"/></svg></span><span>1 ano de hospedagem grátis</span></li>
           <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-messages-square"/></svg></span><span>Suporte ativo</span></li>
-          <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-timer"/></svg></span><span>Entrega em até 4 dias úteis</span></li>
+          <li data-h="ben"><span class="ibox"><svg class="i" aria-hidden="true"><use href="#i-timer"/></svg></span><span>Entrega em 4 dias</span></li>
         </ul>
+
+        <a class="hero-bonus" href="#planos">
+          <span class="hb-ic" aria-hidden="true"><svg class="i"><use href="#i-gift"/></svg></span>
+          <span><b>Bônus de hoje:</b> Logo Kit grátis <span class="hb-old">R$&nbsp;800</span></span>
+        </a>
 
         <div class="hero-ctas" data-h="ctas">
           <a class="btn btn-primary" href="#planos" data-hero-primary><span class="btn-label">Ver planos e valores</span></a>
@@ -205,12 +211,12 @@
     <!-- ============ 5. PLANOS ============ -->
     <section class="sec sec-plans" id="planos" aria-labelledby="s5-title">
       <div class="wrap">
-        <header class="sec-head" data-reveal>
+        <header class="sec-head">
           <h2 id="s5-title">Escolha o seu formato e fale com a gente hoje.</h2>
           <p>Ao clicar, você vai direto para o nosso WhatsApp com o plano já selecionado. O projeto é fechado na conversa.</p>
         </header>
 
-        <div class="plans" data-reveal-group>
+        <div class="plans">
           <article class="plan glass" data-tilt>
             <h3 class="plan-name">Galaxy Page</h3>
             <p class="plan-desc">Uma landing page objetiva para apresentar seu serviço, captar contatos ou vender uma oferta.</p>
@@ -224,7 +230,7 @@
               <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
               <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
               <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 4 dias úteis</b></span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em 4 dias</b></span></li>
               <li class="li-bonus"><span class="chk chk-gift"><svg class="i"><use href="#i-gift"/></svg></span><span><b>Bônus de hoje:</b> Logo Kit grátis (logo, cores e tipografia)</span></li>
             </ul>
             <p class="plan-ideal"><b>Ideal para:</b> profissionais, prestadores de serviço, eventos e lançamentos.</p>
@@ -250,7 +256,7 @@
               <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>1 ano de hospedagem grátis</span></li>
               <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Suporte ativo durante todo o desenvolvimento</span></li>
               <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>2 rodadas de ajustes gratuitas</span></li>
-              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em até 7 dias úteis</b></span></li>
+              <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span><b>Entrega em 7 dias</b></span></li>
               <li class="li-bonus"><span class="chk chk-gift"><svg class="i"><use href="#i-gift"/></svg></span><span><b>Bônus de hoje:</b> Logo Kit grátis (logo, cores e tipografia)</span></li>
             </ul>
             <p class="plan-ideal"><b>Ideal para:</b> empresas, clínicas e negócios com mais de um serviço.</p>
@@ -261,7 +267,7 @@
           </article>
         </div>
 
-        <article class="bonus glass" data-scene-card data-reveal>
+        <article class="bonus glass" data-scene-card>
           <div class="bonus-art">
             <div class="stage stage-bonus"><div class="scene" data-scene="brandkit" data-sw="320" data-sh="230">
               <div class="kit sc-main">
@@ -296,7 +302,7 @@
           </div>
         </article>
 
-        <p class="urg-pill" data-reveal>
+        <p class="urg-pill">
           <span class="pulse-dot" aria-hidden="true"></span>
           <span>Esses valores valem só para quem chamar e fechar hoje. Encerra em <strong class="countdown" role="timer" aria-live="off" data-countdown="hms">23:59:59</strong></span>
         </p>
@@ -306,13 +312,13 @@
     <!-- ============ PORTFÓLIO (carrossel) ============ -->
     <section class="sec sec-pf" id="portfolio" aria-labelledby="pf-title">
       <div class="wrap">
-        <header class="sec-head" data-reveal>
+        <header class="sec-head">
           <h2 id="pf-title">Mais de 400 páginas no ar com a assinatura da Galaxy.</h2>
           <p>Alguns dos projetos que já entregamos. O mesmo time, o mesmo processo e o mesmo padrão que você recebe na Galaxy Starter.</p>
         </header>
       </div>
 
-      <div class="pf-rows" data-reveal>
+      <div class="pf-rows">
         <div class="pf-row" data-marquee>
           <ul class="pf-track" role="list">
             <li class="pf">
@@ -384,7 +390,7 @@
       </div>
 
       <div class="wrap">
-        <div class="pf-note" role="note" data-reveal>
+        <div class="pf-note" role="note">
           <span class="pf-note-ic" aria-hidden="true"><svg class="i"><use href="#i-shield-check"/></svg></span>
           <p><strong>Atenção: são mais de 400 páginas desenvolvidas pela Galaxy Media.</strong> Você não está testando um serviço novo. Está entrando em um processo validado em centenas de projetos, com o mesmo cuidado em cada entrega.</p>
         </div>
@@ -614,7 +620,7 @@
             <button class="expand" type="button" aria-label="Ampliar ilustração: Entrega rápida"><svg class="i" aria-hidden="true"><use href="#i-maximize-2"/></svg></button>
             <div class="scard-body">
               <h3>Entrega rápida</h3>
-              <p>Até 4 dias úteis no Galaxy Page e até 7 dias úteis no Galaxy Professional.</p>
+              <p>4 dias no Galaxy Page e 7 dias no Galaxy Professional.</p>
             </div>
           </article>
 

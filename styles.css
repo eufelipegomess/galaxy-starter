@@ -595,6 +595,35 @@ h3 {
 .pay-micro .chk { width: 18px; height: 18px; }
 .pay-micro .chk .i { width: 11px; height: 11px; }
 
+/* Selo do hero vira atalho para os planos */
+a.hero-tag { text-decoration: none; transition: border-color .2s, background .2s; }
+a.hero-tag:hover { border-color: rgba(186, 157, 255, .4); background: rgba(112, 67, 221, .12); }
+.tag-arrow { width: 14px; height: 14px; color: var(--lilac); margin-left: -2px; }
+a.hero-tag, a.hero-tag span { white-space: nowrap; }
+@media (max-width: 400px) { a.hero-tag { font-size: 12.5px; gap: 8px; } a.hero-tag .tag-strong { font-size: 11.5px; } }
+
+/* Bônus no hero */
+.hero-bonus {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(112, 67, 221, .3), rgba(186, 157, 255, .14));
+  border: 1px solid rgba(186, 157, 255, .35);
+  color: #EDE6FF;
+  font-size: 14.5px;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  box-shadow: 0 10px 30px -14px rgba(112, 67, 221, .8);
+}
+.hero-bonus b { font-weight: 600; color: var(--ink); }
+.hb-ic { display: grid; place-items: center; width: 30px; height: 30px; flex: none; border-radius: 8px; background: var(--grad); color: #fff; }
+.hb-ic .i { width: 16px; height: 16px; }
+.hb-old { margin-left: 4px; color: var(--dim); text-decoration: line-through; text-decoration-color: var(--red); }
+
 .hero-price-line {
   margin-top: 16px;
   font-size: 14.5px;
@@ -651,6 +680,10 @@ h3 {
   }
   .hero-benefits .ibox { width: 36px; height: 36px; }
   .hero-ctas { flex-direction: column; align-items: stretch; max-width: 420px; margin-inline: auto; }
+  .hero-sub { display: none; }
+  .hero-benefits { margin-top: 24px; }
+  .hero-bonus { margin-top: 18px; font-size: 13.5px; }
+  .hero-ctas { margin-top: 16px; }
   .pay-micro { flex-direction: column; align-items: center; gap: 6px; }
   .proof { flex-direction: column; gap: 10px; }
 }
@@ -1811,10 +1844,10 @@ h3 {
    Estados iniciais da animação (só com JS + movimento permitido)
    ========================================================= */
 /* Texto, benefícios e botões do hero aparecem na hora (não esperam o JS) */
-.js-anim [data-mockup],
 .js-anim [data-chip],
 .js-anim [data-toast],
 .js-anim [data-stars] { opacity: 0; }
+.js-anim [data-prog] { transform: scaleX(0); }
 
 /* =========================================================
    Movimento reduzido

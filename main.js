@@ -693,8 +693,6 @@
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.fromTo('[data-stars]', { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'none' }, 0)
       .add(function () { shineOnce($('[data-hero-primary]')); }, 0.2)
-      .fromTo('[data-mockup]', { opacity: 0, y: 120, rotationX: 14 }, { opacity: 1, y: 0, rotationX: 0, duration: 1.4 }, 0)
-      .fromTo('[data-sk]', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, 0.6)
       .fromTo('[data-prog]', { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: 'power2.inOut' }, 1.2)
       .fromTo('[data-chip]', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)', stagger: 0.15 }, 1.4)
       .fromTo('[data-toast]', { opacity: 0, scale: 0.7, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' }, 2.6)
