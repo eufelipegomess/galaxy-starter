@@ -21,9 +21,9 @@
   <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
        (fontes: styles.css e main.js). Depois do build, suba o ?v= abaixo.
        Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
-  <link rel="stylesheet" href="styles.min.css?v=19">
+  <link rel="stylesheet" href="styles.min.css?v=20">
   <script>document.documentElement.classList.add('js');</script>
-  <script src="app.min.js?v=16" defer></script>
+  <script src="app.min.js?v=17" defer></script>
 
   <!-- Meta Pixel -->
   <script>
@@ -125,8 +125,8 @@
 
       <!-- Carrossel de páginas (preenchido pelo main.js) -->
       <div class="marq" aria-hidden="true">
-        <div class="marq-row" data-marq="1,2,16,4,5,6,7,8,9"></div>
-        <div class="marq-row marq-rev" data-marq="17,10,11,12,18,13,14,15,3"></div>
+        <div class="marq-row" data-marq="1,19,2,16,4,5,20,6,7,8,9"></div>
+        <div class="marq-row marq-rev" data-marq="17,10,21,11,12,18,13,14,15,3"></div>
       </div>
     </section>
 
@@ -182,29 +182,29 @@
         <!-- Página completa para rolar -->
         <div class="live" data-reveal>
           <div class="live-tx">
-            <span class="tag"><svg class="i" aria-hidden="true"><use href="#i-mouse"/></svg>Interativo</span>
-            <h3>Role uma página completa, do início ao fim.</h3>
-            <p>Mais do que uma tela bonita: cada seção tem uma função. Apresentar, gerar identificação, mostrar a solução e levar ao contato.</p>
+            <span class="tag"><span class="live-dot"></span>Ao vivo</span>
+            <h3>Navegue em um site real, agora mesmo.</h3>
+            <p>Este é o site da Luxury Objective, no ar e funcionando. Role, clique e veja como cada seção apresenta a empresa e conduz até o contato.</p>
             <ul class="live-list" role="list">
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Estrutura e copy pensadas para converter</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Identidade visual própria em cada seção</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Leitura confortável no celular e no computador</li>
             </ul>
+            <a class="live-open" href="https://luxuryobjective.com" target="_blank" rel="noopener">Abrir o site em outra aba<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </div>
           <div class="live-frame frame">
-            <div class="frame-bar"><i></i><i></i><i></i><span>sistemalojalucrativa.com.br</span></div>
-            <div class="live-scroll" data-live tabindex="0" aria-label="Página de exemplo: role para ver a página inteira">
-              <img src="assets/portfolio/prisciane-1000.webp" srcset="assets/portfolio/prisciane-720.webp 720w, assets/portfolio/prisciane-1000.webp 1000w" sizes="(max-width: 860px) 92vw, 640px" alt="Página completa do Sistema Loja Lucrativa, desenvolvida pela Galaxy Media" width="1000" height="10491" loading="lazy" decoding="async">
+            <div class="frame-bar"><i></i><i></i><i></i><span>luxuryobjective.com</span></div>
+            <div class="live-scroll" data-live>
+              <iframe data-src="https://luxuryobjective.com" title="Site da Luxury Objective, desenvolvido pela Galaxy Media" loading="lazy" referrerpolicy="no-referrer"></iframe>
             </div>
-            <span class="live-hint" data-live-hint><svg class="i" aria-hidden="true"><use href="#i-mouse"/></svg>Role dentro da tela</span>
-            <span class="live-bar" aria-hidden="true"><i data-live-bar></i></span>
+            <span class="live-hint" data-live-hint><svg class="i" aria-hidden="true"><use href="#i-mouse"/></svg>Role e clique dentro da tela</span>
           </div>
         </div>
 
         <!-- Galeria -->
         <div class="gal" data-gal>
           <div class="gal-top">
-            <p><strong data-gal-n>01</strong><span> / 18</span></p>
+            <p><strong data-gal-n>01</strong><span> / 21</span></p>
             <div class="gal-nav">
               <button type="button" data-gal-prev aria-label="Projeto anterior"><svg class="i" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
               <button type="button" data-gal-next aria-label="Próximo projeto"><svg class="i" aria-hidden="true"><use href="#i-chev-r"/></svg></button>

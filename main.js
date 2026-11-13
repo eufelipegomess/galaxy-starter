@@ -3,7 +3,7 @@
   'use strict';
 
   var WA = '5571996723809';
-  var TOTAL = 18; // páginas em assets/portfolio (NN-640.webp / NN-960.webp)
+  var TOTAL = 21; // páginas em assets/portfolio (NN-640.webp / NN-960.webp)
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var track = function (ev, data) { if (window.fbq) window.fbq('track', ev, data); };
@@ -46,37 +46,26 @@
     })(t0);
   }
 
-  /* ---------- Página completa para rolar ---------- */
+  /* ---------- Site ao vivo (iframe) ---------- */
   var live = $('[data-live]');
   if (live) {
-    var hint = $('[data-live-hint]'), lbar = $('[data-live-bar]'), touched = false, auto = null;
-    var upd = function () {
-      var max = live.scrollHeight - live.clientHeight;
-      lbar.style.transform = 'scaleY(' + (max > 0 ? live.scrollTop / max : 0) + ')';
+    var frame = $('iframe', live), hint = $('[data-live-hint]');
+    var DESK = 1366; // largura simulada no computador; no celular mostra a versão mobile
+    var fit = function () {
+      var w = live.clientWidth, h = live.clientHeight;
+      var s = w < 560 ? 1 : w / DESK;
+      frame.style.width = (w / s) + 'px';
+      frame.style.height = (h / s) + 'px';
+      frame.style.transform = s === 1 ? '' : 'scale(' + s + ')';
     };
-    var stop = function () {
-      if (touched) return;
-      touched = true; hint.classList.add('off');
-      if (auto) cancelAnimationFrame(auto);
-    };
-    live.addEventListener('scroll', upd, { passive: true });
-    ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(function (ev) { live.addEventListener(ev, stop, { passive: true }); });
-    // Rolagem automática lenta na primeira vez que aparece, até a pessoa interagir.
-    if (hasIO && !calm) {
-      new IntersectionObserver(function (es, o) {
-        if (!es[0].isIntersecting || touched) return;
-        o.disconnect();
-        var last = 0, y = live.scrollTop;
-        setTimeout(function tick() {
-          auto = requestAnimationFrame(function f(t) {
-            if (touched) return;
-            if (last) { y += (t - last) * 0.04; live.scrollTop = y; }
-            last = t;
-            if (y < live.scrollHeight - live.clientHeight - 2) auto = requestAnimationFrame(f);
-          });
-        }, 900);
-      }, { threshold: 0.6 }).observe(live);
-    }
+    var load = function () { if (!frame.src) { frame.src = frame.dataset.src; fit(); } };
+    fit();
+    addEventListener('resize', fit);
+    live.addEventListener('pointerenter', function () { hint.classList.add('off'); });
+    live.addEventListener('touchstart', function () { hint.classList.add('off'); }, { passive: true });
+    // Só carrega o site de fora quando a seção está chegando na tela.
+    if (hasIO) new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { load(); o.disconnect(); } }, { rootMargin: '600px 0px' }).observe(live);
+    else load();
   }
 
   /* ---------- Galeria de projetos ---------- */

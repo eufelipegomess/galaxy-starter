@@ -673,3 +673,20 @@ h3 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3
   .cta-btns .btn { width: 100%; }
   .cta-box { border-radius: 24px; }
 }
+
+/* ---------- Site ao vivo ---------- */
+.live-scroll { position: relative; overflow: hidden; background: #0b0a0f; }
+.live-scroll iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; background: #0b0a0f; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; animation: ping-r 1.8s infinite; }
+@keyframes ping-r { 0% { box-shadow: 0 0 0 0 rgba(239,68,68,.6); } 70%, 100% { box-shadow: 0 0 0 7px rgba(239,68,68,0); } }
+.live-open { display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; font-size: 14.5px; color: var(--lilac); border-bottom: 1px solid rgba(186,157,255,.3); padding-bottom: 2px; transition: border-color .2s, gap .2s; }
+.live-open:hover { border-color: var(--lilac); gap: 12px; }
+.live-open .i { width: 15px; height: 15px; }
+@media (max-width: 860px) { .live-scroll { height: 560px; } }
+
+/* Site ao vivo em largura total, proporção de notebook */
+.live { grid-template-columns: 1fr; gap: 36px; }
+.live-tx { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 760px; margin: 0 auto; }
+.live-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; }
+.live-scroll { height: auto; aspect-ratio: 16 / 9; }
+@media (max-width: 860px) { .live-scroll { aspect-ratio: auto; height: 480px; } }
