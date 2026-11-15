@@ -21,9 +21,9 @@
   <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
        (fontes: styles.css e main.js). Depois do build, suba o ?v= abaixo.
        Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
-  <link rel="stylesheet" href="styles.min.css?v=21">
+  <link rel="stylesheet" href="styles.min.css?v=22">
   <script>document.documentElement.classList.add('js');</script>
-  <script src="app.min.js?v=19" defer></script>
+  <script src="app.min.js?v=20" defer></script>
 
   <!-- Meta Pixel -->
   <script>
@@ -478,7 +478,7 @@
           <label><input type="radio" name="ramo" value="" data-other><span><svg class="i"><use href="#i-pencil"/></svg>Outro segmento</span></label>
         </div>
         <div class="qz-other" data-other-box hidden>
-          <input class="field" type="text" name="ramo_outro" placeholder="Qual é o seu segmento?" maxlength="60" autocomplete="off">
+          <input class="field" type="text" name="ramo_outro" placeholder="Qual é o seu segmento?" maxlength="60" autocomplete="off" enterkeyhint="next">
           <button class="btn btn-primary" type="button" data-qz-next>Avançar<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
         </div>
       </fieldset>
@@ -505,10 +505,10 @@
       <fieldset class="qz-step" data-step data-label="Sua empresa" hidden>
         <legend>Última etapa: para quem é a prévia?</legend>
         <label class="lbl">Nome da empresa
-          <input class="field" type="text" name="empresa" placeholder="Como sua empresa se chama?" maxlength="80" autocomplete="organization">
+          <input class="field" type="text" name="empresa" placeholder="Como sua empresa se chama?" maxlength="80" autocomplete="organization" enterkeyhint="next">
         </label>
         <label class="lbl">Instagram <small>(opcional)</small>
-          <span class="field-at"><input class="field" type="text" name="instagram" placeholder="suaempresa" maxlength="40" autocomplete="off" autocapitalize="off"></span>
+          <span class="field-at"><input class="field" type="text" name="instagram" placeholder="suaempresa" maxlength="40" autocomplete="off" autocapitalize="off" enterkeyhint="send"></span>
         </label>
         <p class="qz-err" data-qz-err role="alert" hidden>Falta só o nome da empresa.</p>
         <button class="btn btn-primary btn-block" type="submit"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg>Enviar briefing pelo WhatsApp</button>

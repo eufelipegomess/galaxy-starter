@@ -172,14 +172,21 @@
   dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
   back.addEventListener('click', function () { go(at - 1); });
 
-  form.addEventListener('change', function (e) {
+  // "click" e não "change": tocar de novo numa opção já marcada (ao voltar ou reabrir) também avança.
+  var moving = false;
+  form.addEventListener('click', function (e) {
     var t = e.target;
-    if (t.type !== 'radio') return;
+    if (t.type !== 'radio' || moving) return;
     if (t.name === 'ramo') {
       otherBox.hidden = !t.hasAttribute('data-other');
-      if (!otherBox.hidden) { form.ramo_outro.focus(); return; }
+      if (!otherBox.hidden) {
+        form.ramo_outro.focus();
+        setTimeout(function () { otherBox.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 300);
+        return;
+      }
     }
-    setTimeout(function () { go(at + 1); }, 260);
+    moving = true; // evita pular etapa com toque duplo
+    setTimeout(function () { moving = false; go(at + 1); }, 220);
   });
   next.addEventListener('click', function () {
     if (!form.ramo_outro.value.trim()) { form.ramo_outro.focus(); return; }
@@ -187,6 +194,9 @@
   });
   form.ramo_outro.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') { e.preventDefault(); next.click(); }
+  });
+  form.empresa.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && form.empresa.value.trim()) { e.preventDefault(); form.instagram.focus(); }
   });
 
   form.addEventListener('submit', function (e) {

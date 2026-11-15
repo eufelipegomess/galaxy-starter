@@ -706,3 +706,15 @@ h3 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3
 
 /* Seções fora da tela não são desenhadas: rolagem mais leve, animações pausam sozinhas */
 .sec { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
+/* Briefing no celular: sem hover preso, "Outro" com botão ao lado do campo (visível com teclado aberto) */
+@media (hover: none) {
+  .tiles label:hover span { transform: none; border-color: var(--line-2); }
+  .opts label:hover span { border-color: var(--line-2); }
+}
+.opts span, .tiles span { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+@media (max-width: 860px) {
+  .qz-other { flex-direction: row; }
+  .qz-other .btn { flex: none; padding: 0 18px; height: 52px; }
+  .tiles span { min-height: 76px; gap: 8px; }
+}
