@@ -126,8 +126,9 @@
   }
 
   /* ---------- Links diretos de WhatsApp ---------- */
-  $$('[data-wa]').forEach(function (a) {
-    a.addEventListener('click', function () { track('Contact', { content_name: a.dataset.wa }); });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href*="wa.me"]');
+    if (a) track('Contact', { content_name: a.dataset.wa || 'WhatsApp' });
   });
 
   /* ---------- Briefing da prévia ---------- */
@@ -191,7 +192,10 @@
     if (ig) lines.push('*Instagram:* @' + ig);
     lines.push('*Presença online:* ' + val('site'), '*Segmento:* ' + ramo, '*Papel do site:* ' + val('objetivo'), '*Momento:* ' + val('prazo'));
     var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n'));
-    track('Lead', { content_name: 'Prévia', content_category: ramo });
+    // Lead uma vez por sessão; o eventID fica pronto para deduplicar com a API de Conversões no futuro.
+    var sent = false;
+    try { sent = sessionStorage.getItem('gx_lead') === '1'; sessionStorage.setItem('gx_lead', '1'); } catch (x) {}
+    if (!sent && window.fbq) window.fbq('track', 'Lead', { content_name: 'Prévia', content_category: ramo }, { eventID: 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) });
     track('Contact', { content_name: 'Prévia (' + origin + ')' });
     // Pequena espera para o Pixel enviar antes de sair da página.
     setTimeout(function () { location.href = url; }, 300);
