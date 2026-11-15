@@ -3,6 +3,7 @@
   'use strict';
 
   var WA = '5571996723809';
+  var PIXEL = '1983631395666819';
   var TOTAL = 21; // páginas em assets/portfolio (NN-640.webp / NN-960.webp)
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -214,9 +215,18 @@
     // Lead uma vez por sessão; o eventID fica pronto para deduplicar com a API de Conversões no futuro.
     var sent = false;
     try { sent = sessionStorage.getItem('gx_lead') === '1'; sessionStorage.setItem('gx_lead', '1'); } catch (x) {}
-    if (!sent && window.fbq) window.fbq('track', 'Lead', { content_name: 'Prévia', content_category: ramo }, { eventID: 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) });
+    if (!sent) {
+      var eid = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
+      if (window.fbq) window.fbq('track', 'Lead', { content_name: 'Prévia', content_category: ramo }, { eventID: eid });
+      // Reserva: no navegador do Facebook/Instagram a página some ao abrir o WhatsApp e o Pixel
+      // pode não ter enviado ainda. O beacon sobrevive à saída; o mesmo eventID faz a Meta contar uma vez só.
+      try {
+        navigator.sendBeacon('https://www.facebook.com/tr/?id=' + PIXEL + '&ev=Lead&eid=' + eid +
+          '&dl=' + encodeURIComponent(location.href) + '&cd[content_name]=Pr%C3%A9via&cd[content_category]=' + encodeURIComponent(ramo));
+      } catch (x) {}
+    }
     track('Contact', { content_name: 'Prévia (' + origin + ')' });
-    // Pequena espera para o Pixel enviar antes de sair da página.
-    setTimeout(function () { location.href = url; }, 300);
+    // Espera curta para o Pixel enviar antes de sair da página.
+    setTimeout(function () { location.href = url; }, 700);
   });
 })();
