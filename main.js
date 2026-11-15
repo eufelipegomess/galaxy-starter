@@ -50,10 +50,10 @@
   var live = $('[data-live]');
   if (live) {
     var frame = $('iframe', live), hint = $('[data-live-hint]');
-    var DESK = 1366; // largura simulada no computador; no celular mostra a versão mobile
+    var DESK = 1366, MOB = 390; // larguras simuladas: notebook e celular padrão
     var fit = function () {
       var w = live.clientWidth, h = live.clientHeight;
-      var s = w < 560 ? 1 : w / DESK;
+      var s = w / (w < 560 ? MOB : DESK);
       frame.style.width = (w / s) + 'px';
       frame.style.height = (h / s) + 'px';
       frame.style.transform = s === 1 ? '' : 'scale(' + s + ')';
@@ -63,8 +63,17 @@
     addEventListener('resize', fit);
     live.addEventListener('pointerenter', function () { hint.classList.add('off'); });
     live.addEventListener('touchstart', function () { hint.classList.add('off'); }, { passive: true });
-    // Só carrega o site de fora quando a seção está chegando na tela.
-    if (hasIO) new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { load(); o.disconnect(); } }, { rootMargin: '600px 0px' }).observe(live);
+    // No celular o site de fora é pesado: mostra uma capa e só carrega no toque.
+    var poster = $('[data-live-poster]', live);
+    if (poster && matchMedia('(max-width: 860px)').matches) {
+      poster.addEventListener('click', function () {
+        // A capa fica até o site terminar de carregar, para não mostrar tela preta.
+        $('.live-tap', poster).lastChild.textContent = 'Carregando o site…';
+        frame.addEventListener('load', function () { live.classList.add('on'); }, { once: true });
+        setTimeout(function () { live.classList.add('on'); }, 20000);
+        load();
+      }, { once: true });
+    } else if (hasIO) new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { load(); o.disconnect(); } }, { rootMargin: '600px 0px' }).observe(live);
     else load();
   }
 

@@ -21,9 +21,9 @@
   <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
        (fontes: styles.css e main.js). Depois do build, suba o ?v= abaixo.
        Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
-  <link rel="stylesheet" href="styles.min.css?v=20">
+  <link rel="stylesheet" href="styles.min.css?v=21">
   <script>document.documentElement.classList.add('js');</script>
-  <script src="app.min.js?v=18" defer></script>
+  <script src="app.min.js?v=19" defer></script>
 
   <!-- Meta Pixel -->
   <script>
@@ -196,6 +196,7 @@
             <div class="frame-bar"><i></i><i></i><i></i><span>luxuryobjective.com</span></div>
             <div class="live-scroll" data-live>
               <iframe data-src="https://luxuryobjective.com" title="Site da Luxury Objective, desenvolvido pela Galaxy Media" loading="lazy" referrerpolicy="no-referrer"></iframe>
+              <button class="live-poster" type="button" data-live-poster aria-label="Carregar o site ao vivo"><img src="assets/luxury-mobile.webp" alt="" width="720" height="1182" loading="lazy" decoding="async"><span class="live-tap"><svg class="i" aria-hidden="true"><use href="#i-mouse"/></svg>Toque para navegar no site</span></button>
             </div>
             <span class="live-hint" data-live-hint><svg class="i" aria-hidden="true"><use href="#i-mouse"/></svg>Role e clique dentro da tela</span>
           </div>
