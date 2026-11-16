@@ -21,9 +21,9 @@
   <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
        (fontes: styles.css e main.js). Depois do build, suba o ?v= abaixo.
        Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
-  <link rel="stylesheet" href="styles.min.css?v=22">
+  <link rel="stylesheet" href="styles.min.css?v=23">
   <script>document.documentElement.classList.add('js');</script>
-  <script src="app.min.js?v=21" defer></script>
+  <script src="app.min.js?v=22" defer></script>
 
   <!-- Meta Pixel -->
   <script>
@@ -156,7 +156,7 @@
             </div>
             <div class="pv-foot">
               <span>Tudo certo por aqui?</span>
-              <div><span class="pv-b">Mudar algo</span><span class="pv-b pv-ok"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Quero assim</span></div>
+              <div><span class="pv-b" data-quiz="Card prévia">Mudar algo</span><span class="pv-b pv-ok" data-quiz="Card prévia"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Quero assim</span></div>
             </div>
             <span class="pv-cursor"><svg class="i i-fill"><use href="#i-pointer"/></svg></span>
             <span class="pv-toast"><svg class="i"><use href="#i-check"/></svg>Bora para o site completo</span>

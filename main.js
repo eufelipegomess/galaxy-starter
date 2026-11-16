@@ -24,6 +24,10 @@
     row.innerHTML = '<div class="marq-track">' + items + items + '</div>';
   });
 
+  // Tocar numa página do carrossel leva até a galeria de projetos.
+  var marq = $('.marq'), proj = $('#projetos');
+  if (marq && proj) marq.addEventListener('click', function () { proj.scrollIntoView({ behavior: calm ? 'auto' : 'smooth' }); });
+
   /* ---------- Revelar ao rolar ---------- */
   if (hasIO && !calm) {
     document.documentElement.classList.add('rv');
@@ -108,7 +112,8 @@
     };
     $('[data-gal-prev]', gal).addEventListener('click', function () { goTo(cur - 1); });
     $('[data-gal-next]', gal).addEventListener('click', function () { goTo(cur + 1); });
-    gt.addEventListener('click', function (e) { var c = e.target.closest('.gc'); if (c) goTo(cards.indexOf(c)); });
+    // Toque no card do centro avança para o próximo; nos laterais, centraliza (nunca fica sem resposta).
+    gt.addEventListener('click', function (e) { var c = e.target.closest('.gc'); if (c) { var i = cards.indexOf(c); goTo(i === cur ? i + 1 : i); } });
     gt.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight') { e.preventDefault(); goTo(cur + 1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(cur - 1); }
