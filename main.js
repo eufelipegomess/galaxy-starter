@@ -215,11 +215,14 @@
     var ramo = val('ramo') || form.ramo_outro.value.trim();
     var lines = ['Olá! Acabei de preencher o briefing e quero receber a prévia do meu site.', '', '*Empresa:* ' + empresa];
     if (ig) lines.push('*Instagram:* @' + ig);
-    lines.push('*Presença online:* ' + val('site'), '*Segmento:* ' + ramo, '*Papel do site:* ' + val('objetivo'), '*Momento:* ' + val('prazo'));
+    lines.push('*Presença online:* ' + val('site'), '*Segmento:* ' + ramo, '*Operação:* ' + val('operacao'), '*Papel do site:* ' + val('objetivo'), '*Investimento:* ' + val('investimento'), '*Momento:* ' + val('prazo'));
+    // Só vira Lead para a Meta quem já opera e não está só pesquisando: a campanha aprende com esse perfil.
+    // Os demais chegam igual no WhatsApp, mas contam apenas como Contact.
+    var qualified = val('operacao') !== 'Ainda vou abrir' && val('prazo') !== 'Estou pesquisando valores';
     var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n'));
     // Lead uma vez por sessão; o eventID fica pronto para deduplicar com a API de Conversões no futuro.
-    var sent = false;
-    try { sent = sessionStorage.getItem('gx_lead') === '1'; sessionStorage.setItem('gx_lead', '1'); } catch (x) {}
+    var sent = !qualified;
+    try { if (!sent) { sent = sessionStorage.getItem('gx_lead') === '1'; sessionStorage.setItem('gx_lead', '1'); } } catch (x) {}
     if (!sent) {
       var eid = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
       if (window.fbq) window.fbq('track', 'Lead', { content_name: 'Prévia', content_category: ramo }, { eventID: eid });
@@ -230,7 +233,7 @@
           '&dl=' + encodeURIComponent(location.href) + '&cd[content_name]=Pr%C3%A9via&cd[content_category]=' + encodeURIComponent(ramo));
       } catch (x) {}
     }
-    track('Contact', { content_name: 'Prévia (' + origin + ')' });
+    track('Contact', { content_name: 'Prévia (' + origin + ')' + (qualified ? '' : ' · não qualificado') });
     // Espera curta para o Pixel enviar antes de sair da página.
     setTimeout(function () { location.href = url; }, 700);
   });

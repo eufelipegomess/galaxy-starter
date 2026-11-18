@@ -21,9 +21,9 @@
   <!-- styles.min.css e app.min.js são gerados por `node deploy/build.mjs`
        (fontes: styles.css e main.js). Depois do build, suba o ?v= abaixo.
        Não crie package.json na raiz: o Dokploy publica pelo Dockerfile. -->
-  <link rel="stylesheet" href="styles.min.css?v=23">
+  <link rel="stylesheet" href="styles.min.css?v=24">
   <script>document.documentElement.classList.add('js');</script>
-  <script src="app.min.js?v=22" defer></script>
+  <script src="app.min.js?v=23" defer></script>
 
   <!-- Meta Pixel -->
   <script>
@@ -111,6 +111,7 @@
       <div class="wrap hero-in">
         <p class="eyebrow pill"><span class="dot"></span>Prévia 100% gratuita</p>
         <h1 id="hero-title">Seu site pronto em até 48 horas. <span class="hl">Você só paga se gostar.</span></h1>
+        <p class="for-who"><svg class="i" aria-hidden="true"><use href="#i-check-check"/></svg>Para empresas e profissionais que já atendem clientes e querem um site que venda.</p>
         <p class="lead">Antes de qualquer pagamento, criamos uma prévia estratégica do seu site, pensada para o seu negócio. Gostou? Seguimos com o projeto completo. Não gostou? Você não paga nada.</p>
         <div class="hero-cta">
           <button class="btn btn-primary" type="button" data-quiz="Hero">Solicitar minha prévia<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
@@ -453,8 +454,8 @@
         </div>
         <button class="qz-ic" type="button" data-qz-close aria-label="Fechar"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button>
       </div>
-      <div class="qz-segs" aria-hidden="true" data-qz-segs><i></i><i></i><i></i><i></i><i></i></div>
-      <p class="qz-count" data-qz-count>1/5</p>
+      <div class="qz-segs" aria-hidden="true" data-qz-segs><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="qz-count" data-qz-count>1/7</p>
 
       <fieldset class="qz-step" data-step data-label="Presença online">
         <legend>Como está a presença online da sua empresa hoje?</legend>
@@ -483,6 +484,15 @@
         </div>
       </fieldset>
 
+      <fieldset class="qz-step" data-step data-label="Operação" hidden>
+        <legend>Sua empresa já está em operação?</legend>
+        <div class="opts">
+          <label><input type="radio" name="operacao" value="Sim, empresa com CNPJ"><span><b class="o-ic"><svg class="i"><use href="#i-store"/></svg></b>Sim, empresa com CNPJ<em></em></span></label>
+          <label><input type="radio" name="operacao" value="Sou profissional autônomo"><span><b class="o-ic"><svg class="i"><use href="#i-award"/></svg></b>Sou profissional autônomo<em></em></span></label>
+          <label><input type="radio" name="operacao" value="Ainda vou abrir"><span><b class="o-ic"><svg class="i"><use href="#i-compass"/></svg></b>Ainda vou abrir<em></em></span></label>
+        </div>
+      </fieldset>
+
       <fieldset class="qz-step" data-step data-label="Objetivo" hidden>
         <legend>Qual deve ser o papel principal do site?</legend>
         <div class="opts">
@@ -493,12 +503,21 @@
         </div>
       </fieldset>
 
+      <fieldset class="qz-step" data-step data-label="Investimento" hidden>
+        <legend>Quanto pretende investir no site?</legend>
+        <div class="opts">
+          <label><input type="radio" name="investimento" value="Até R$ 1.000"><span><b class="o-ic"><svg class="i"><use href="#i-gauge"/></svg></b>Até R$ 1.000<em></em></span></label>
+          <label><input type="radio" name="investimento" value="De R$ 1.000 a R$ 2.000"><span><b class="o-ic"><svg class="i"><use href="#i-target"/></svg></b>De R$ 1.000 a R$ 2.000<em></em></span></label>
+          <label><input type="radio" name="investimento" value="De R$ 2.000 a R$ 3.000"><span><b class="o-ic"><svg class="i"><use href="#i-zap"/></svg></b>De R$ 2.000 a R$ 3.000<em></em></span></label>
+        </div>
+      </fieldset>
+
       <fieldset class="qz-step" data-step data-label="Momento" hidden>
         <legend>Em que momento você está?</legend>
         <div class="opts">
           <label><input type="radio" name="prazo" value="Quero tirar do papel logo"><span><b class="o-ic"><svg class="i"><use href="#i-zap"/></svg></b>Quero tirar do papel logo<em></em></span></label>
           <label><input type="radio" name="prazo" value="Pretendo começar em até 30 dias"><span><b class="o-ic"><svg class="i"><use href="#i-calendar"/></svg></b>Pretendo começar em até 30 dias<em></em></span></label>
-          <label><input type="radio" name="prazo" value="Por enquanto, só pesquisando"><span><b class="o-ic"><svg class="i"><use href="#i-compass"/></svg></b>Por enquanto, só pesquisando<em></em></span></label>
+          <label><input type="radio" name="prazo" value="Estou pesquisando valores"><span><b class="o-ic"><svg class="i"><use href="#i-compass"/></svg></b>Estou pesquisando valores<em></em></span></label>
         </div>
       </fieldset>
 
